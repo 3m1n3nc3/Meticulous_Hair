@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Demo extends CI_Controller {
+class Pass extends CI_Controller {
 
     /*
      *  Bypass the activation check
