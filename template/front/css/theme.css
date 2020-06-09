@@ -3616,6 +3616,7 @@ input[type=checkbox] {
 @media (min-width: 601px) and (max-width: 991px) {
   .thumbnail .media-link {
     height: 220px;
+    min-height: 360px;
   }
 }
 .thumbnail .media-link .icon-view {
@@ -8115,6 +8116,7 @@ span.sticker{
   .thumbnail.box-style-2 .media-link,
   .thumbnail.box-style-3 .media-link {
     height: 150px;
+    min-height: 220px;
   }
   .thumbnail.box-style-1 .price del,
   .thumbnail.box-style-2 .price del,
