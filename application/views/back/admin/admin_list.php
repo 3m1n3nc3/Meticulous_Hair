@@ -13,29 +13,34 @@
             <?php
 				$i = 0;
                 foreach($all_admins as $row){
-					$i++;
+					$i++; 
+                    $admin = $this->db->get_where('admin', array(
+                        'admin_id' => $this->session->userdata('admin_id')
+                    ))->row();
+                    if ($this->crud_model->get_type_name_by_id('role',$row['role']) != 'master' OR $admin->role == 1) { 
             ?>
-                <tr>
-                    <td><?php echo $i; ?></td>
-                    <td><?php echo $row['name']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $this->crud_model->get_type_name_by_id('role',$row['role']); ?></td>
-                    <td class="text-right">
-                        <a class="btn btn-success btn-xs btn-labeled fa fa-wrench" data-toggle="tooltip" 
-                            onclick="ajax_modal('edit','<?php echo translate('edit_admin'); ?>','<?php echo translate('successfully_edited!'); ?>','admin_edit','<?php echo $row['admin_id']; ?>')" 
-                                data-original-title="Edit" data-container="body">
-                                    <?php echo translate('edit');?>
-                        </a>
-                        <?php if($row['admin_id'] !== '1'){ ?>
-                        <a onclick="delete_confirm('<?php echo $row['admin_id']; ?>','<?php echo translate('really_want_to_delete_this?'); ?>')" 
-                        	class="btn btn-danger btn-xs btn-labeled fa fa-trash" 
-                            	data-toggle="tooltip"data-original-title="Delete" data-container="body">
-                                	<?php echo translate('delete');?>
-                        </a>
-                        <?php } ?>
-                    </td>
-                </tr>
+                    <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $this->crud_model->get_type_name_by_id('role',$row['role']); ?></td>
+                        <td class="text-right">
+                            <a class="btn btn-success btn-xs btn-labeled fa fa-wrench" data-toggle="tooltip" 
+                                onclick="ajax_modal('edit','<?php echo translate('edit_admin'); ?>','<?php echo translate('successfully_edited!'); ?>','admin_edit','<?php echo $row['admin_id']; ?>')" 
+                                    data-original-title="Edit" data-container="body">
+                                        <?php echo translate('edit');?>
+                            </a>
+                            <?php if($row['admin_id'] !== '1'){ ?>
+                            <a onclick="delete_confirm('<?php echo $row['admin_id']; ?>','<?php echo translate('really_want_to_delete_this?'); ?>')" 
+                            	class="btn btn-danger btn-xs btn-labeled fa fa-trash" 
+                                	data-toggle="tooltip"data-original-title="Delete" data-container="body">
+                                    	<?php echo translate('delete');?>
+                            </a>
+                            <?php } ?>
+                        </td>
+                    </tr>
             <?php
+                    }
                 }
             ?>
             </tbody>

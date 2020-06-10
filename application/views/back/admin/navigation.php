@@ -1105,7 +1105,8 @@ $customer_product_check = $this->crud_model->get_type_name_by_id('general_settin
                             }
                         ?>
                         <?php
-							if($this->crud_model->admin_permission('business_settings')){
+							if($this->crud_model->admin_permission('business_settings') ||
+                                $this->crud_model->admin_permission('site_settings')){
 						?>
                         <li <?php if($page_name=="activation" || 
 										$page_name=="payment_method" ||
@@ -1128,12 +1129,21 @@ $customer_product_check = $this->crud_model->get_type_name_by_id('general_settin
                                                                 	$page_name=="faq_settings" ){?>
                                                                              in
                                                                                 <?php } ?> ">
+                                <?php
+                                    if($this->crud_model->admin_permission('site_settings')){
+                                ?>
                                 <li <?php if($page_name=="activation"){?> class="active-link" <?php } ?> >
                                 	<a href="<?php echo base_url(); ?>admin/activation/">
                                     	<i class="fa fa-circle fs_i"></i>
                                             <?php echo translate('activation');?>
                                     </a>
                                 </li>
+                                <?php
+                                    }
+                                ?>
+                                <?php
+                                    if($this->crud_model->admin_permission('business_settings')){
+                                ?>
                                 <li <?php if($page_name=="payment_method"){?> class="active-link" <?php } ?> >
                                     <a href="<?php echo base_url(); ?>admin/payment_method/">
                                     	<i class="fa fa-circle fs_i"></i>
@@ -1152,6 +1162,9 @@ $customer_product_check = $this->crud_model->get_type_name_by_id('general_settin
                                             <?php echo translate('faqs');?>
                                     </a>
                                 </li>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </li>
                         <?php
