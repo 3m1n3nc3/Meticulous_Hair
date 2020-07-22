@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="view-all-btn mt-30 text-center">
-                        <a href="#" class="btn akame-btn">Shop all Wigs</a>
+                        <a href="<?php echo base_url('meticulous/shop');?>" class="btn akame-btn">Shop all Wigs</a>
                     </div>
                 </div>
             </div>
