@@ -41,7 +41,7 @@ jQuery.fn.slideFadeOut  = function(speed, easing, callback) {
 jQuery(document).ready(function () {
     // Prevent empty links
     // ---------------------------------------------------------------------------------------
-    $('a[href=#]').click(function (event) {
+    $('a[href="#"]').click(function (event) {
         event.preventDefault();
     });
     // Sticky header/menu
