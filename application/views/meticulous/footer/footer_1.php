@@ -71,7 +71,7 @@
                         </p> 
                         <?php if($about = $this->db->where('parmalink', 'about')->or_like('parmalink', 'about')->get('page')->row_array()) {?>
                         <p> 
-                            <a href="<?php echo base_url('home/page/'.$about['parmalink']); ?>">
+                            <a href="<?php echo base_url('meticulous/page/'.$about['parmalink']); ?>">
                                 <?php echo $about['page_name'];?>
                             </a>
                         </p> 
