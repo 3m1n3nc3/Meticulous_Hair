@@ -3402,7 +3402,7 @@ class Home extends CI_Controller
     {
         $carted = $this->cart->contents();
         if (count($carted) <= 0) {
-            redirect(base_url() . 'home/', 'refresh');
+            redirect(base_url() . 'meticulous/', 'refresh');
         }
 
         if ($para1 == "orders") {
