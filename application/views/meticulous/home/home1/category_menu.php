@@ -12,11 +12,11 @@
             ?>
             <div class="single-welcome-slide bg-img" style="background-image: url(<?php echo $this->crud_model->file_view('slides',$row['slides_id'],'100','','no','src','','','.jpg') ?>);">
                 <!-- Welcome Content -->
-                <div class="welcome-content h-100">
+                <!--<div class="welcome-content h-100">
                     <div class="container h-100">
-                        <div class="row h-100 align-items-center">
+                        <div class="row h-100 align-items-center">-->
                             <!-- Welcome Text -->
-                            <div class="col-12 col-md-9 col-lg-6">
+                  <!--           <div class="col-12 col-md-9 col-lg-6">
                                 <div class="welcome-text">
                                     <h2 data-animation="fadeInUp" data-delay="100ms"><?php echo $row['button_link']; ?></h2>
                                     <p data-animation="fadeInUp" data-delay="400ms"><?php echo $row['button_text']; ?>”</p>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>  
             <?php
                 $i++;
