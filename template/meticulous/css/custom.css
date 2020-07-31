@@ -1,8 +1,12 @@
 @media (max-width: 600px) {
-  	.thumbnail.box-style-1 .media-link, .thumbnail.box-style-2 .media-link, .thumbnail.box-style-3 .media-link {
-	    height: 150px;
-	    min-height: 420px!important;
-    }
+	.thumbnail.box-style-1 .media-link, .thumbnail.box-style-2 .media-link, .thumbnail.box-style-3 .media-link {
+    height: 150px;
+    min-height: 420px!important;
+  }
+
+  .recommend_box_1 .image-box { 
+    min-height: 270px; 
+  }
 }
 
 .thumbnail.box-style-1 .media-link {  
@@ -173,4 +177,8 @@
   border: solid 1px #d8d6d6;
   margin-left: 1px;
   margin-right: 1px;
+}
+
+.orders .shopping-cart table tfoot td { 
+ font-size: 16px!important; 
 }

@@ -83,7 +83,7 @@
 
                                 <!-- Cart Icon -->
                                 <div class="cart-icon ml-5 mt-4 mt-lg-0"> 
-                                    <a href="<?php echo base_url('home/cart_checkout')?>">
+                                    <a href="<?php echo base_url('meticulous/cart_checkout')?>">
                                         <i class="icon_cart"></i> 
                                         <span class="hidden-xs"> 
                                             <span class="cart_num"></span> 
