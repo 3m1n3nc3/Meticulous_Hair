@@ -14,7 +14,7 @@
     <div class="container">
         <div class="tabs-wrapper content-tabs">
             <ul class="nav nav-tabs">
-                <li  class="active"  ><a href="#tab1" data-toggle="tab"><?php echo translate('full_description'); ?></a></li>
+                <li  class="active" ><a href="#tab1" data-toggle="tab"><?php echo translate('full_description'); ?></a></li>
                 <li ><a href="#tab2" data-toggle="tab"><?php echo translate('additional_specification'); ?></a></li>
                 <li ><a href="#tab3" data-toggle="tab"><?php echo translate('shipment_info'); ?></a></li>
                 <li ><a href="#tab4" data-toggle="tab"><?php echo translate('reviews'); ?></a></li>
@@ -203,6 +203,7 @@
 
 <script type="text/javascript">
     $(function () {
+        var content_tabs = $('.content-tabs ul li');
         var rateit_product_by_user =  $("#rateit_product_by_user");
         var edit_my_rating =  $("#edit_my_rating");
         var submit_my_rating =  $("#submit_my_rating");
@@ -232,6 +233,14 @@
         edit_my_rating.on('click',function (e) {
             my_rating_span.hide();
             my_rating_edit_span.show();
+        });
+
+        content_tabs.on('click', function(argument) {
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            }
+             $(this).addClass('active');
+             $(this).siblings().removeClass('active');
         });
 
         submit_my_rating.on('click',function (e) {

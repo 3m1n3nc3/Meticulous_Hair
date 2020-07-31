@@ -139,3 +139,38 @@
 	color:#ffffff;
     border: 3px solid #2E3E51;
 }
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-tabs>li {
+    float: left;
+    margin-bottom: -1px;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}
+
+.nav>li>a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.activeModal .close { 
+  top: 10px; 
+}
+
+.content-tabs .nav-tabs > li > a, .content-tabs .nav-tabs > li > a:focus { 
+  border: solid 1px #d8d6d6;
+  margin-left: 1px;
+  margin-right: 1px;
+}

@@ -2313,7 +2313,7 @@ class Meticulous extends CI_Controller
 
         $this->set_affiliation_code_as_cookie(array());
 
-        $this->load->view('front/index', $page_data);
+        $this->load->view('meticulous/index', $page_data);
     }
 
     function set_affiliation_code_as_cookie($params)

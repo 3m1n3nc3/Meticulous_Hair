@@ -54,7 +54,7 @@
                             <i class="pull-left fa fa-instagram"></i>
                             <div class="media-body">
                                 <strong><?php echo translate('instagram');?>:</strong><br>
-                                <a href="<?php echo $contact_email;?>">
+                                <a href="<?php echo $instagram;?>">
                                     <?php echo $instagram;?>
                                 </a>
                             </div>

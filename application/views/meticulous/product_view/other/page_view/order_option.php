@@ -179,17 +179,7 @@
         <?php 
             $compare = $this->crud_model->is_compared($row['product_id']); 
         ?>
-        <span class="btn btn-add-to compare btn_compare"  onclick="do_compare(<?php echo $row['product_id']; ?>,event)">
-            <i class="fa fa-exchange"></i>
-            <span class="hidden-sm hidden-xs">
-				<?php if($compare == 'yes'){ 
-                    echo translate('_compared'); 
-                    } else { 
-                    echo translate('_compare');
-                    } 
-                ?>
-            </span>
-        </span>
+ 
         <?php if($this->crud_model->is_product_affiliation_on($row['product_id']) && $this->session->userdata('user_login') == "yes" && $this->crud_model->get_settings_value('general_settings', 'product_affiliation_set', 'value') == 'ok') { ?>
         <span class="btn btn-add-to btn-warning"
               data-toggle="collapse" data-target="#affiliate_share_collapse" aria-controls="affiliate_share_collapse" role="button" aria-expanded="false">
@@ -235,7 +225,7 @@
 <script>
 	$(document).ready(function() {
 		$('#share').share({
-			networks: ['facebook','googleplus','twitter','linkedin','tumblr','in1','stumbleupon','digg'],
+			networks: ['facebook','twitter','linkedin'],
 			theme: 'square'
 		});
 	});
