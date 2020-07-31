@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb-content">
-                    <h2><?php echo $page_title;?></h2>
+                    <h2><?php echo ucwords($page_title);?></h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo base_url();?>"><i class="icon_house_alt"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $page_title;?></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo ucwords($page_title);?></li>
                         </ol>
                     </nav>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="section-heading text-right mb-80 pr-5 pt-3">
                         <p>100% human handmade wigs, fully customized</p>
                         <h2><?php echo $page_title;?></h2>
-                        <span><?php echo $page_title;?></span>
+                        <span><?php echo ucwords($page_title);?></span>
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
