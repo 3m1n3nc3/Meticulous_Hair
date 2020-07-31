@@ -4848,6 +4848,15 @@ class Home extends CI_Controller
         $this->load->view('front/index', $page_data);
     }
 
+    function shop($para1 = "shop")
+    {
+        $page_data['product_type'] = $para1;
+        $page_data['page_name']  = 'shop';
+        $page_data['asset_page'] = 'product_list_other';
+        $page_data['page_title'] = translate('shop');
+        $this->load->view('front/index', $page_data);
+    }
+
     function product_by_type($para1 = "")
     {
         $page_data['product_type'] = $para1;

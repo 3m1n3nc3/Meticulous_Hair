@@ -47,9 +47,12 @@
 		include 'blog.php';
 	}
 ?>
+
+<?php include 'custom_content.php'; ?>
+
 <?php
 	if($this->crud_model->get_type_name_by_id('ui_settings','31','value') == 'ok'){
-		include 'special_products.php';
+		// include 'special_products.php';
 	}
 ?>
 <?php 

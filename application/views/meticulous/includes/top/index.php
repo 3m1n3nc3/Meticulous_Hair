@@ -93,7 +93,7 @@
 
 <!-- Theme CSS -->
 <?php $theme =  $this->db->get_where('ui_settings',array('type' => 'header_color'))->row()->value;?>
- <link href="<?php echo base_url(); ?>template/front/css/theme.css" rel="stylesheet">
+<link href="<?php echo base_url(); ?>template/front/css/theme.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>template/front/css/theme-<?php echo $theme; ?>.css" rel="stylesheet" id="theme-config-link">
 <link href="<?php echo base_url(); ?>template/front/plugins/smedia/custom-1.css" rel="stylesheet">
 

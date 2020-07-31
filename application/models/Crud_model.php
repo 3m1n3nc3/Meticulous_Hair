@@ -346,10 +346,10 @@ class Crud_model extends CI_Model
     function product_link($product_id, $quick = '')
     {
         if ($quick == 'quick') {
-            return base_url() . 'home/quick_view/' . $product_id;
+            return base_url() . 'meticulous/quick_view/' . $product_id;
         } else {
             $name = url_title($this->crud_model->get_type_name_by_id('product', $product_id, 'title'));
-            return base_url() . 'home/product_view/' . $product_id . '/' . $name;
+            return base_url() . 'meticulous/product_view/' . $product_id . '/' . $name;
         }
     }
 

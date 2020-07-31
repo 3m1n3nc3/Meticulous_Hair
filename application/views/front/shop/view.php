@@ -56,5 +56,5 @@
 	
 	$(document).ready(function() {
 		filter_others('0');
-	});	
+	});
 </script>

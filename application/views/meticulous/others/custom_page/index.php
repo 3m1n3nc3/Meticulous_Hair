@@ -33,16 +33,14 @@
                 <!-- Section Heading -->
                 <div class="col-12 col-lg-4">
                     <div class="section-heading text-right mb-80 pr-5 pt-3">
-                        <!-- <p>New York • Since 2004</p> -->
+                        <p>100% human handmade wigs, fully customized</p>
                         <h2><?php echo $page_title;?></h2>
                         <span><?php echo $page_title;?></span>
                     </div>
                 </div>
                 <div class="col-12 col-lg-8">
-                    <div class="about--us--content mb-80">
-                        <p>
-                        <?php echo $content;?>
-                        </p>
+                    <div class="about--us--content mb-80"> 
+                        <?php echo $content;?> 
                     </div>
                 </div>
             <?php endif;?>

@@ -22,7 +22,7 @@ class Html_model extends CI_Model
     
     function product_box($product_data = array(), $type = '', $style = '')
     {
-        $this->load->view('front/components/product_boxes/product_box_'.$type.'_'.$style,$product_data);
+        $this->load->view('meticulous/components/product_boxes/product_box_'.$type.'_'.$style,$product_data);
 
     }
 	

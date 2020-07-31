@@ -83,7 +83,7 @@ include 'meta/'.$asset_page.'.php';
 </div>
 <!-- facebook chat ends -->
 <?php } ?>
-
+ 
 <!-- CSS Global -->
 <link href="<?php echo base_url(); ?>template/front/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>template/front/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">

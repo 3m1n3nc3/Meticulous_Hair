@@ -52,14 +52,14 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul id="nav">
-                                    <?php if($this->db->get_where('ui_settings',array('type'=>'header_homepage_status'))->row()->value == 'yes'){?>
+                                    <?php if($this->db->get_where('ui_settings',array('type'=>'header_homepage_status'))->row()->value == 'yes') {?>
                                     <li <?php if($asset_page=='home'){ ?>class="active"<?php } ?>>
                                         <a href="<?php echo base_url(); ?>">
                                             <?php echo translate('homepage');?>
                                         </a>
                                     </li>
                                     <?php }?>
-                                    <li><a href="<?php echo base_url('meticulous/shop'); ?>"><?php echo translate('shop'); ?></a>
+                                    <li <?php if($page_name=='shop'){ ?>class="active"<?php } ?>><a href="<?php echo base_url('meticulous/shop'); ?>"><?php echo translate('shop'); ?></a>
                                         <ul class="dropdown">
                                             <li>
                                                 <a href="<?php echo base_url('meticulous/shop'); ?>">- <?php echo translate('wigs'); ?></a>

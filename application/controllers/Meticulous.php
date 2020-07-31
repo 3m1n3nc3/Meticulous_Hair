@@ -1933,7 +1933,7 @@ class Meticulous extends CI_Controller
         $page_data['count'] = $config['total_rows'];
         $page_data['page_type'] = $type;
 
-        $this->load->view('front/shop/listed', $page_data);
+        $this->load->view('meticulous/shop/listed', $page_data);
     }
 
     /* FUNCTION: Loads Product List */
@@ -2348,7 +2348,7 @@ class Meticulous extends CI_Controller
         $page_data['page_description'] = !empty($product_data->row()->seo_title)? $product_data->row()->seo_description :'';
         $page_data['product_tags'] = $product_data->row()->tag;
 
-        $this->load->view('front/product_view/' . $type . '/quick_view/index', $page_data);
+        $this->load->view('meticulous/product_view/' . $type . '/quick_view/index', $page_data);
     }
 
     function customer_product_view($para1 = "", $para2 = "")
@@ -3404,7 +3404,7 @@ class Meticulous extends CI_Controller
     {
         $carted = $this->cart->contents();
         if (count($carted) <= 0) {
-            redirect(base_url() . 'home/', 'refresh');
+            redirect(base_url() . 'meticulous/', 'refresh');
         }
 
         if ($para1 == "orders") {
@@ -4856,13 +4856,13 @@ class Meticulous extends CI_Controller
         $page_data['page_name']  = 'shop';
         $page_data['asset_page'] = 'product_list_other';
         $page_data['page_title'] = translate('shop');
-        $this->load->view('front/index', $page_data);
+        $this->load->view('meticulous/index', $page_data);
     }
 
     function product_by_type($para1 = "")
     {
         $page_data['product_type'] = $para1;
-        $this->load->view('front/others_list/view', $page_data);
+        $this->load->view('meticulous/others_list/view', $page_data);
     }
 
     function bundled_product()
