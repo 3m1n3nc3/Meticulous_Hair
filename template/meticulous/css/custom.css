@@ -1,16 +1,43 @@
 @media (max-width: 600px) {
 	.thumbnail.box-style-1 .media-link, .thumbnail.box-style-2 .media-link, .thumbnail.box-style-3 .media-link {
-    height: 150px;
-    min-height: 420px!important;
+    height: 150px!important;
+    min-height: 470px!important;
   }
 
   .recommend_box_1 .image-box { 
     min-height: 270px; 
   }
 }
+.single-welcome-slide { 
+  height: 670px!important; 
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .single-welcome-slide {
+    height: 500px!important;
+  }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .single-welcome-slide {
+    height: 450px!important;
+  }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 626px) {
+  .single-welcome-slide {
+    height: 355px!important;
+  }
+}
+
+@media only screen and (max-width: 625px) and (min-width: 300px) {
+  .single-welcome-slide {
+    height: 280px!important;
+  }
+}
 
 .thumbnail.box-style-1 .media-link {  
-	min-height: 245px!important;
+	min-height: 290px;
 }
 
 .thumbnail .media {
