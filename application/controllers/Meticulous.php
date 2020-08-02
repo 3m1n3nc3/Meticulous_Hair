@@ -2686,7 +2686,7 @@ class Meticulous extends CI_Controller
     function login_set($para1 = '', $para2 = '', $para3 = '')
     {
         if ($this->session->userdata('user_login') == "yes") {
-            redirect(base_url() . 'home/profile', 'refresh');
+            redirect(base_url() . 'meticulous/profile', 'refresh');
         }
         if ($this->crud_model->get_settings_value('general_settings', 'captcha_status', 'value') == 'ok') {
             $this->load->library('recaptcha');
@@ -2790,9 +2790,9 @@ class Meticulous extends CI_Controller
                         $para2a = $this->session->userdata('back');
 
                         if ($para2a == 'cart' || $para2a == 'back_to_cart') {
-                            redirect(base_url() . 'home/cart_checkout', 'refresh');
+                            redirect(base_url() . 'meticulous/cart_checkout', 'refresh');
                         } else {
-                            redirect(base_url() . 'home/profile', 'refresh');
+                            redirect(base_url() . 'meticulous/profile', 'refresh');
                         }
                     }
 
@@ -2836,9 +2836,9 @@ class Meticulous extends CI_Controller
                 ));
 
                 if ($para2 == 'cart') {
-                    redirect(base_url() . 'home/cart_checkout', 'refresh');
+                    redirect(base_url() . 'meticulous/cart_checkout', 'refresh');
                 } else {
-                    redirect(base_url() . 'home', 'refresh');
+                    redirect(base_url() . 'meticulous', 'refresh');
                 }
             }
             if (@$_SESSION['token']) {
@@ -2860,9 +2860,9 @@ class Meticulous extends CI_Controller
             $page_data['page_title'] = translate('login');
             if ($para2 == 'modal') {
                 $page_data['page'] = $para3;
-                $this->load->view('front/user/login/quick_modal', $page_data);
+                $this->load->view('meticulous/user/login/quick_modal', $page_data);
             } else {
-                $this->load->view('front/index', $page_data);
+                $this->load->view('meticulous/index', $page_data);
             }
         } elseif ($para1 == 'registration') {
             if ($this->crud_model->get_settings_value('general_settings', 'captcha_status', 'value') == 'ok') {
@@ -2872,9 +2872,9 @@ class Meticulous extends CI_Controller
             $page_data['asset_page'] = "register";
             $page_data['page_title'] = translate('registration');
             if ($para2 == 'modal') {
-                $this->load->view('front/user/register/index', $page_data);
+                $this->load->view('meticulous/user/register/index', $page_data);
             } else {
-                $this->load->view('front/index', $page_data);
+                $this->load->view('meticulous/index', $page_data);
             }
         }
     }
@@ -2890,14 +2890,14 @@ class Meticulous extends CI_Controller
             $this->facebook->destroy_session();
         }
         $this->session->sess_destroy();
-        redirect(base_url() . 'home/logged_out', 'refresh');
+        redirect(base_url() . 'meticulous/logged_out', 'refresh');
     }
 
     /* FUNCTION: Logout */
     function logged_out()
     {
         $this->session->set_flashdata('alert', 'successful_signout');
-        redirect(base_url() . 'home/', 'refresh');
+        redirect(base_url() . 'meticulous/', 'refresh');
     }
 
     /* FUNCTION: Check if Email user exists */
@@ -2953,7 +2953,7 @@ class Meticulous extends CI_Controller
                     echo 'done';
                 }
             } else {
-                echo 'Disallowed charecter : " ' . $char . ' " in the POST';
+                echo 'Disallowed character : " ' . $char . ' " in the POST';
             }
         }
     }
@@ -3109,7 +3109,7 @@ class Meticulous extends CI_Controller
             }
             echo 'done';
         } else {
-            $this->load->view('front/registration', $page_data);
+            $this->load->view('meticulous/registration', $page_data);
         }
     }
 

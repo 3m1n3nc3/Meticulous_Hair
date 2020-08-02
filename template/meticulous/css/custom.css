@@ -57,7 +57,7 @@
   -webkit-box-shadow: none;
   box-shadow: none;
   height: 40px;
-  width: 70%;
+  width: 60%;
   display:inline;
   border-radius: 4px 0 0 4px !important;
   color: #000000;
@@ -154,15 +154,15 @@
 }
 
 .custom-footer1-widgets .widget .form-control {
-    border: 3px solid #33495E;
+    border: 3px solid #bca858;
 }
 .custom-footer1-widgets .widget .form-control:hover {
     border: 3px solid #2E3E51;
 
 }
 .custom-footer1-widgets .widget .btn-subcribe{
-    background: #33495E;
-    border: 3px solid #33495E;
+  background: #bca858;
+  border: 3px solid #bca858;
 	color:#fff;
 }
 .custom-footer1-widgets .widget .btn-subcribe:hover{
@@ -208,4 +208,15 @@
 
 .orders .shopping-cart table tfoot td { 
  font-size: 16px!important; 
+}
+
+.get_into hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #00000000, #33495e, #00000000);
+  margin: 0px 0px 30px;
+}
+
+.logo_top {
+  background: #ddbd26 !important;
 }

@@ -43,7 +43,7 @@
     <!-- Call To Action Area End -->
 
     <!-- Footer Area Start -->
-    <footer class="footer-area section-padding-80-0">
+    <footer class="footer-area section-padding-80-0 mx-3">
         <div class="container custom-footer1-widgets">
             <div class="row justify-content-between">
 
@@ -54,7 +54,7 @@
                         <a href="#" class="footer-logo"><img src="<?php echo $this->crud_model->logo('home_bottom_logo'); ?>" alt=""></a>
 
                         <!-- <p class="mb-30"><?php echo $footer_text ;?></p>  -->
-                        <?php echo form_open(base_url() . 'home/subscribe', array(
+                        <?php echo form_open(base_url() . 'meticulous/subscribe', array(
                                 'class' => '',
                                 'method' => 'post'
                             ));
