@@ -12,7 +12,7 @@
                 <div class="tabs-wrapper content-tabs home1_category_box">
                     <ul class="nav nav-tabs">
                         <li class="category_title" style="background:<?php echo $row['color_back'];?>;border:1px solid <?php echo $row['color_back'];?>;">
-                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>" style="color:<?php echo $row['color_text'];?>">
+                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>" style="color:<?php echo $row['color_text'];?>">
                                 <?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name'); ?>
                             </a>
                         </li>
@@ -32,7 +32,7 @@
 							}
 						}
 						?>
-                        <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>" class="see_more hidden-xs hidden-sm" style="background:<?php echo $row['color_back'];?>; border:1px solid <?php echo $row['color_back'];?>; color:<?php echo $row['color_text'];?>;">
+                        <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>" class="see_more hidden-xs hidden-sm" style="background:<?php echo $row['color_back'];?>; border:1px solid <?php echo $row['color_back'];?>; color:<?php echo $row['color_text'];?>;">
                         	<i class="fa fa-link"></i>
                         </a>
                     </ul>

@@ -4,7 +4,7 @@
                     if($this->session->userdata('user_login')!='yes'){ 
                 ?>
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/login_set/login"> 
+                    <a href="<?php echo base_url(); ?>meticulous/login_set/login"> 
                         <span><?php echo translate('login');?></span>
                     </a>
                 </li>
@@ -12,7 +12,7 @@
                 	if ($this->crud_model->get_type_name_by_id('general_settings','58','value') !== 'ok') {
 				?>
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/login_set/registration">
+                    <a href="<?php echo base_url(); ?>meticulous/login_set/registration">
                         <span><?php echo translate('registration');?></span>
                     </a>
                 </li>
@@ -25,12 +25,12 @@
                     </a>
                 	<ul role="menu" class="dropdown-menu">
                     	<li>
-                            <a href="<?php echo base_url(); ?>home/login_set/registration">
+                            <a href="<?php echo base_url(); ?>meticulous/login_set/registration">
                                 <span><?php echo translate('customer_registration');?></span>
                             </a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>home/vendor_logup/registration">
+                            <a href="<?php echo base_url(); ?>meticulous/vendor_logup/registration">
                                 <span><?php echo translate('vendor_registration');?></span>
                             </a>
                         </li>
@@ -43,28 +43,28 @@
                             if ($this->crud_model->get_type_name_by_id('general_settings','84','value') == 'ok') { ?>
 
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/profile/part/wallet">
+                    <a href="<?php echo base_url(); ?>meticulous/profile/part/wallet">
                         <i class="fa fa-money"></i> <span><?php echo translate('wallet');?><?php echo ' - '.currency($this->wallet_model->user_balance()); ?></span>
                     </a>
                 </li>
                 <?php } ?>
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/profile/">
+                    <a href="<?php echo base_url(); ?>meticulous/profile/">
                         <span><?php echo translate('my_profile');?></span>
                     </a>
                 </li>
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/profile/part/wishlist">
+                    <a href="<?php echo base_url(); ?>meticulous/profile/part/wishlist">
                         <span><?php echo translate('wishlist');?></span>
                     </a>
                 </li>
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/faq">
+                    <a href="<?php echo base_url(); ?>meticulous/faq">
                         <?php echo translate('faq');?>
                     </a>
                 </li>
                 <li class="icon-user">
-                    <a href="<?php echo base_url(); ?>home/logout/">
+                    <a href="<?php echo base_url(); ?>meticulous/logout/">
                         <span><?php echo translate('logout');?></span>
                     </a>
                 </li>

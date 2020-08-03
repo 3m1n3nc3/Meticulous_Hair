@@ -47,13 +47,13 @@
 					<h3 itemprop="name" class="product-title" style="padding-right: 60px"><?php echo $row['title'];?></h3>
                     <div class="product-info">
                         <p>
-                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>">
+                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>">
                                 <?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name');?>
                             </a>
                         </p>
                         ||
                         <p>
-                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>/<?php echo $row['sub_category']; ?>">
+                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>/<?php echo $row['sub_category']; ?>">
                                 <?php echo $this->crud_model->get_type_name_by_id('sub_category',$row['sub_category'],'sub_category_name');?>
                             </a>
                         </p>

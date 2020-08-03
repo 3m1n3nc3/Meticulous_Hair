@@ -8,7 +8,7 @@
                 </span>
             </h2>
             <?php
-                echo form_open(base_url() . 'home/home_search/text', array(
+                echo form_open(base_url() . 'meticulous/home_search/text', array(
                     'class' => 'sky-form',
                     'method' => 'post',
                     'enctype' => 'multipart/form-data',

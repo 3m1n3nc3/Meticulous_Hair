@@ -265,7 +265,7 @@
 					<?php echo translate('print'); ?>
                	</span>
                 <?php if($invoice != "guest") {?>
-                <a class="btn btn-danger pull-right" href="<?=base_url()?>home/profile/part/order_history" style="margin-right: 5px;"><?php echo translate('back_to_profile'); ?></a>
+                <a class="btn btn-danger pull-right" href="<?=base_url()?>meticulous/profile/part/order_history" style="margin-right: 5px;"><?php echo translate('back_to_profile'); ?></a>
                 <?php }?>
             </div>
         </div>

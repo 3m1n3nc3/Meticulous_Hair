@@ -211,7 +211,7 @@
 			var thetr = here.closest('tr');
 			var list1 = $('#total');
 			$.ajax({
-				url: base_url+'home/cart/remove_one/'+rowid,
+				url: base_url+'meticulous/cart/remove_one/'+rowid,
 				beforeSend: function() {
 					list1.html('...');
 				},

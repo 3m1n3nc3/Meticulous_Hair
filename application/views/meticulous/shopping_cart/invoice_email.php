@@ -27,7 +27,7 @@
                     <?php }?>
                     <tr><td><strong><?php echo translate('invoice_no');?></strong> : <?php echo $row['sale_code']; ?> </td></tr>
                     <?php if($invoice == "guest") {?>
-                        <tr><td><strong><?php echo translate('invoice_link');?></strong> : <?php echo base_url() ?>home/guest_invoice/<?php echo $row['guest_id']; ?> </td></tr>
+                        <tr><td><strong><?php echo translate('invoice_link');?></strong> : <?php echo base_url() ?>meticulous/guest_invoice/<?php echo $row['guest_id']; ?> </td></tr>
                     <?php }?>
                     <tr><td><strong><?php echo translate('date');?></strong> : <?php echo date('d M, Y',$row['sale_datetime'] );?></td></tr>
                 </table>

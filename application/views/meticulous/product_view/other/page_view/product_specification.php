@@ -250,7 +250,7 @@
             var product_type = set_product_type.val();
 
             ajaxRequest = $.ajax({
-                url: "<?= base_url()?>home/ajax_post_user_rating",
+                url: "<?= base_url()?>meticulous/ajax_post_user_rating",
                 type: "post",
                 data:
                     {

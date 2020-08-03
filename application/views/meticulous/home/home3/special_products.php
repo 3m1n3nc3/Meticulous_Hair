@@ -27,7 +27,7 @@
                                     </a>
                                 </h4>
                                 <p>
-                                    <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>">
+                                    <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>">
                                     <?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name'); ?>
                                     </a>
                                 </p>
@@ -71,7 +71,7 @@
                                     </a>
                                 </h4>
                                 <p>
-                                    <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>">
+                                    <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>">
                                     <?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name'); ?>
                                     </a>
                                 </p>
@@ -115,7 +115,7 @@
                                     </a>
                                 </h4>
                                 <p>
-                                    <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>">
+                                    <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>">
                                     <?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name'); ?>
                                     </a>
                                 </p>

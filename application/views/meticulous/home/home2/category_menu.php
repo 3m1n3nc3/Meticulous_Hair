@@ -24,7 +24,7 @@
 														?>
                                                         <li class="item-vertical style1 with-sub-menu hover category_side_set">
                                                             <p class="close-menu"></p>
-                                                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>" class="clearfix ">
+                                                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>" class="clearfix ">
                                                                 <span>
                                                                     <strong> 
                                                                         <i class="icon icon1"></i>
@@ -58,7 +58,7 @@
                                                                                         <div class="menu">
                                                                                             <ul>
                                                                                                 <li>
-                                                                                                    <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_id']; ?>" class="main-menu">
+                                                                                                    <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_id']; ?>" class="main-menu">
                                                                                                         <?php echo $row1['sub_name'];?>
                                                                                                     </a>
                                                                                                     <ul>
@@ -69,7 +69,7 @@
                                                                                                                     $brand = explode(':::',$row2);
                                                                                                         ?>
                                                                                                         <li>
-                                                                                                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_id']; ?>-<?php echo $brand[0]; ?>">
+                                                                                                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_id']; ?>-<?php echo $brand[0]; ?>">
                                                                                                                 <?php echo $brand[1];?>
                                                                                                             </a>
                                                                                                         </li>
@@ -86,7 +86,7 @@
 																						?>
                                                                                         <ul>
                                                                                             <li>
-                                                                                                <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_id']; ?>" class="main-menu">
+                                                                                                <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_id']; ?>" class="main-menu">
                                                                                                     <?php echo $row1['sub_name'];?>
                                                                                                 </a>
                                                                                             </li>
@@ -114,7 +114,7 @@
 																		?>
                                                                         <div class="col-sm-4 padding-r-0-md">
                                                                             <div class="img-banner">
-                                                                                <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>">
+                                                                                <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>">
                                                                                     <?php
 																					if(file_exists('uploads/category_image/'.$row['banner'])){
 																					?>
@@ -138,7 +138,7 @@
 															}
 														?>
                                                         <li class="loadmore">
-                                                            <a href="<?php echo base_url(); ?>home/all_category">
+                                                            <a href="<?php echo base_url(); ?>meticulous/all_category">
                                                                 <i class="fa fa-plus-square-o"></i>
                                                                 <span class="more-view"> 
                                                                     <?php echo translate('more_categories');?>

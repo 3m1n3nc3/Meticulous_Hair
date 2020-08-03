@@ -17,7 +17,7 @@
                     foreach($vendors as $row){
                 ?>
                 <div class="p-item p-item-type-zoom" style="padding:5px;">
-                    <a href="<?php echo base_url(); ?>home/vendor_profile/<?php echo $row['vendor_id']; ?>" class="p-item-hover">
+                    <a href="<?php echo base_url(); ?>meticulous/vendor_profile/<?php echo $row['vendor_id']; ?>" class="p-item-hover">
                         <div class="p-item-info">
                             <div class="p-headline">
                                 <span><?php echo $row['name']; ?></span>

@@ -5,7 +5,7 @@
             <div class="col-md-12">
             	<div class="row">
                     <div class="col-md-6 pull-right">
-                        <a class="btn-u btn-u-dark btn-labeled fa fa-repeat pull-right" href="<?php echo base_url(); ?>home/compare/clear">
+                        <a class="btn-u btn-u-dark btn-labeled fa fa-repeat pull-right" href="<?php echo base_url(); ?>meticulous/compare/clear">
                             <?php echo translate('reset_compare_list'); ?>
                         </a>
                     </div>
@@ -203,7 +203,7 @@ $('.searcher').on('change',function(){
 	var cat = $(this).closest('table').data('cat');
 	var col = $(this).data('col');
 	var pro = $(this).val();
-	$.getJSON("<?php echo base_url(); ?>home/compare/get_detail/"+pro,
+	$.getJSON("<?php echo base_url(); ?>meticulous/compare/get_detail/"+pro,
 		function(result){
 			$.each(result, function(i, field){
 				$('.colm_'+cat+'_'+col+'_'+i).html(field);
@@ -213,7 +213,7 @@ $('.searcher').on('change',function(){
 });
 </script>
 <?php
-echo form_open(base_url() . 'home/compare/add', array(
+echo form_open(base_url() . 'meticulous/compare/add', array(
 'method' => 'post',
 'id' => 'plistform',
 'enctype' => 'multipart/form-data'

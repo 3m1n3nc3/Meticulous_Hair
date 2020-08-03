@@ -4,7 +4,7 @@
             <?php echo translate('product_search'); ?>
         </h4>
         <?php
-            echo form_open(base_url() . 'home/customer_products/search', array(
+            echo form_open(base_url() . 'meticulous/customer_products/search', array(
                 'class' => 'sky-form',
                 'method' => 'post',
                 'enctype' => 'multipart/form-data',

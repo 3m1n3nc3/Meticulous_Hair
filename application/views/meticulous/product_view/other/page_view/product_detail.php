@@ -41,19 +41,19 @@
                 ?>
                     <div class="product-info">
                         <p>
-                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>">
+                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>">
                                 <?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name');?>
                             </a>
                         </p>
                         ||
                         <p>
-                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>/<?php echo $row['sub_category']; ?>">
+                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>/<?php echo $row['sub_category']; ?>">
                                 <?php echo $this->crud_model->get_type_name_by_id('sub_category',$row['sub_category'],'sub_category_name');?>
                             </a>
                         </p>
                         ||
                         <p itemscope itemtype="http://schema.org/Brand">
-                            <a  href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>/<?php echo $row['sub_category']; ?>-<?php echo $row['brand']; ?>">
+                            <a  href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>/<?php echo $row['sub_category']; ?>-<?php echo $row['brand']; ?>">
                             <span itemprop="name"><?php echo $this->crud_model->get_type_name_by_id('brand',$row['brand'],'name');?></span>
                             </a>
                         </p>
@@ -123,6 +123,7 @@
                     </a>  
                     <?php  
                         if($this->session->userdata('user_login') == 'yes'){
+                            $is_review = 'no';
                             $user_id = $this->session->userdata('user_id');
                             $user_products = $this->db->select('product_details')->from('sale')->where('buyer', $user_id)->get()->result_array();
 

@@ -21,19 +21,19 @@
                 </h4>
                 <div class="product-info">
                     <p>
-                        <a href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>">
+                        <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>">
                             <?php echo $this->crud_model->get_type_name_by_id('category',$category,'category_name');?>
                         </a>
                     </p>
                     ||
                     <p>
-                        <a href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>/<?php echo $sub_category; ?>">
+                        <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>/<?php echo $sub_category; ?>">
                             <?php echo $this->crud_model->get_type_name_by_id('sub_category',$sub_category,'sub_category_name');?>
                         </a>
                     </p>
                     ||
                     <p itemscope itemtype="http://schema.org/Brand">
-                        <a itemprop="url" href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>/<?php echo $sub_category; ?>-<?php echo $brand; ?>">
+                        <a itemprop="url" href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>/<?php echo $sub_category; ?>-<?php echo $brand; ?>">
                          <span itemprop="name"><?php echo $this->crud_model->get_type_name_by_id('brand',$brand,'name');?></span>
                         </a>
                     </p>

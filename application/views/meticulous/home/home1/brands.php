@@ -14,7 +14,7 @@
                     foreach($brands as $row){
                 ?>
                 <div class="p-item p-item-type-zoom">
-                    <a href="<?php echo base_url(); ?>home/category/0/0-<?php echo $row['brand_id']; ?>" class="p-item-hover">
+                    <a href="<?php echo base_url(); ?>meticulous/category/0/0-<?php echo $row['brand_id']; ?>" class="p-item-hover">
                         <div class="p-item-info">
                             <div class="p-headline">
                                 <div class="p-btn">

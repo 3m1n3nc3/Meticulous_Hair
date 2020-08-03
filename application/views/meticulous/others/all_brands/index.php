@@ -25,7 +25,7 @@
                 <div class="all-brands-list">
                     <div class="brands-list-heading">
                         <div class="heading-text">
-                        	<a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>">
+                        	<a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>">
                             	<?php echo $row['category_name'];?>
                             </a>
                         </div>
@@ -61,7 +61,7 @@
 										?>
                                     </td>
                                     <td class="brand-name">
-                                        <a itemprop="name" href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>/0-<?php echo $row3; ?>">
+                                        <a itemprop="name" href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>/0-<?php echo $row3; ?>">
 											<?php echo $this->crud_model->get_type_name_by_id('brand',$row3,'name');?>
                                         </a>
                                     </td>

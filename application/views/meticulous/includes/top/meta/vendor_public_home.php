@@ -19,7 +19,7 @@
         <!-- Open Graph data -->
         <meta property="og:title" content="<?php echo $row['display_name']; ?>" />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="<?php  echo base_url(); ?>home/vendor_profile/<?php echo $row['vendor_id']; ?>" />
+        <meta property="og:url" content="<?php  echo base_url(); ?>meticulous/vendor_profile/<?php echo $row['vendor_id']; ?>" />
         <meta property="og:image" content="<?php echo base_url(); ?>uploads/vendor_logo_image/logo_<?php echo $vendor_id; ?>.png" />
         <meta property="og:description" content="<?php echo str_replace('"',"'",strip_tags($row['description'])); ?>" />
         <meta property="og:site_name" content="<?php echo $system_title; ?>" />

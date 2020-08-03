@@ -12,7 +12,7 @@
         		<div class="home-3-category d-flex align-items-center h-100" style="background-image: url('<?php echo $this->crud_model->file_view('category',$row['category'],'','','no','src','',''); ?>');">
         			<div>
 	        			<h2><?php echo $this->crud_model->get_type_name_by_id('category',$row['category'],'category_name'); ?></h2>
-	        			<a href="<?php echo base_url(); ?>home/category/<?php echo $row['category']; ?>" class="btn"><?php echo translate('browse_all');?></a>
+	        			<a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category']; ?>" class="btn"><?php echo translate('browse_all');?></a>
         			</div>
         		</div>
         	</div>

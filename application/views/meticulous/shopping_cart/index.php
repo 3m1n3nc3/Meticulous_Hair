@@ -1,5 +1,5 @@
 <?php
-echo form_open(base_url() . 'home/cart_finish/go', array(
+echo form_open(base_url() . 'meticulous/cart_finish/go', array(
             'method' => 'post',
             'enctype' => 'multipart/form-data',
             'id' => 'cart_form'
@@ -44,7 +44,7 @@ echo form_open(base_url() . 'home/cart_finish/go', array(
         <div class="panel-group payments-options" id="accordion" role="tablist" aria-multiselectable="true">
         </div>
         <div class="overflowed">
-            <a class="btn btn-theme-dark" href="<?php echo base_url(); ?>home/cancel_order">
+            <a class="btn btn-theme-dark" href="<?php echo base_url(); ?>meticulous/cancel_order">
                 <?php echo translate('cancel_order');?>
             </a>
             <span class="btn btn-theme pull-right disabled" id="order_place_btn" onclick="cart_submission(this);">

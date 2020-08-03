@@ -80,7 +80,7 @@
 	        }
 			
 	        $.ajax({
-	            url 		: base_url+'home/cart/add/'+product+'/'+type,
+	            url 		: base_url+'meticulous/cart/add/'+product+'/'+type,
 				type 		: 'POST', // form submit method get/post
 				dataType 	: 'html', // request type html/json/xml
 				data 		: option, // serialize form data 
@@ -111,7 +111,7 @@
 	                    });
 						reload_header_cart();
 						//growl
-	                    //ajax_load(base_url+'home/cart/added_list/','added_list');
+	                    //ajax_load(base_url+'meticulous/cart/added_list/','added_list');
 						notify(product_added,'success','bottom','right');
 						//sound('successful_cart');
 	                } else if (data == 'shortage'){
@@ -145,7 +145,7 @@
 	        state.success(function (data) {
 	            if(data == 'hypass'){
 					$.ajax({
-						url: base_url+'home/wishlist/add/'+product,
+						url: base_url+'meticulous/wishlist/add/'+product,
 						beforeSend: function() {
 						},
 						success: function(data) {
@@ -175,16 +175,16 @@
 
 
 	function reload_header_cart(){
-	    $.getJSON(base_url+"home/cart/whole_list", function(result){
+	    $.getJSON(base_url+"meticulous/cart/whole_list", function(result){
 			var total = 0;
 			var whole_list = '';
 			var count = Object.keys(result).length;
 	        $.each(result, function(i, field){
 				total += Number(field['subtotal'])*exchange;		
 
-      			whole_list +=   "<div class=\"media\" data-rowid=\""+field['rowid']+"\">"
-						        +"    <a class=\"pull-left\" href=\""+base_url+'home/product_view/'+field['id']+"\"><img class=\"media-object item-image\" src=\""+field['image']+"\" alt=\"\"></a>"
-						        +"    <p class=\"pull-right item-price\">"+currency+(Number(field['price'])*exchange*Number(field['qty'])).toFixed(2)+" <span class=\"remove_one\"><i class=\"fa fa-close\"></i></span></p>"
+      			whole_list +=   "<div class=\"media\" data-rowid=\""+field['rowid']+"\" style=\"display: block;\">"
+						        +"    <a class=\"pull-left\" href=\""+base_url+'meticulous/product_view/'+field['id']+"\"><img class=\"media-object item-image\" src=\""+field['image']+"\" alt=\"\"></a>"
+						        +"    <p class=\"pull-right item-price\">"+currency+(Number(field['price'])*exchange*Number(field['qty'])).toFixed(2)+" <span class=\"remove_one\"><i class=\"fa fa-close text-danger\"></i></span></p>"
 						        +"    <div class=\"media-body\">"
 						        +"        <h4 class=\"media-heading item-title\"><a href=\"#\">"+field['qty']+" X "+field['name']+"</a></h4>"
 						        +"    </div>"
@@ -215,7 +215,7 @@
 
 
 	$(document).ready(function () {
-		$.ajax({url: '<?php echo base_url(); ?>home/surfer_info'});
+		$.ajax({url: '<?php echo base_url(); ?>meticulous/surfer_info'});
 	});
 
 		
@@ -613,7 +613,7 @@
 	}
 	
 	function signin(carry){
-		$('#qoiqois').data('ajax','<?php echo base_url(); ?>home/login_set/login/modal/'+carry);
+		$('#qoiqois').data('ajax','<?php echo base_url(); ?>meticulous/login_set/login/modal/'+carry);
 		$('#qoiqois').click();
 	}
 	function wallet(hurl){
@@ -636,7 +636,7 @@
 	});
 	function check_login_stat(thing){
 		return $.ajax({
-			url: '<?php echo base_url(); ?>home/check_login/'+thing
+			url: '<?php echo base_url(); ?>meticulous/check_login/'+thing
 		});
 	}	
 
@@ -934,7 +934,7 @@
 			state.success(function (data) {
 				if(data == 'hypass'){
 					$.ajax({
-						url: base_url+'home/wishlist/add/'+product,
+						url: base_url+'meticulous/wishlist/add/'+product,
 						beforeSend: function() {
 							button.html('<span><?php echo translate('working...'); ?></span>');
 						},
@@ -963,7 +963,7 @@
 			state.success(function (data) {
 				if(data == 'hypass'){
 					$.ajax({
-						url: base_url+'home/wishlist/add/'+product,
+						url: base_url+'meticulous/wishlist/add/'+product,
 						beforeSend: function() {
 							button.html(wishlist_adding); // change submit button text
 						},
@@ -1021,9 +1021,9 @@
 								var url = window.location.href;
 								if(url.search("vendor_logup") !== -1){
 									//$('.vendor_login_btn')[0].click();
-									location.replace("<?php echo base_url(); ?>home/vendor_login_msg");
+									location.replace("<?php echo base_url(); ?>meticulous/vendor_login_msg");
 								} else{
-									location.replace("<?php echo base_url(); ?>home/login_set/login");
+									location.replace("<?php echo base_url(); ?>meticulous/login_set/login");
 								}
 							}, 2000
 						);
@@ -1035,9 +1035,9 @@
 								var url = window.location.href;
 								if(url.search("vendor_logup") !== -1){
 									//$('.vendor_login_btn')[0].click();
-									location.replace("<?php echo base_url(); ?>home/vendor_login_msg");
+									location.replace("<?php echo base_url(); ?>meticulous/vendor_login_msg");
 								} else{
-									location.replace("<?php echo base_url(); ?>home/login_set/login");
+									location.replace("<?php echo base_url(); ?>meticulous/login_set/login");
 								}
 							}, 2000
 						);
@@ -1049,9 +1049,9 @@
 								var url = window.location.href;
 								if(url.search("vendor_logup") !== -1){
 									//$('.vendor_login_btn')[0].click();
-									location.replace("<?php echo base_url(); ?>home/vendor_login_msg");
+									location.replace("<?php echo base_url(); ?>meticulous/vendor_login_msg");
 								} else{
-									location.replace("<?php echo base_url(); ?>home/login_set/login");
+									location.replace("<?php echo base_url(); ?>meticulous/login_set/login");
 								}
 							}, 2000
 						);
@@ -1509,7 +1509,7 @@
 			var thetr = here.closest('.media');
 			var list1 = $('#total');
 			$.ajax({
-				url: base_url+'home/cart/remove_one/'+rowid,
+				url: base_url+'meticulous/cart/remove_one/'+rowid,
 				beforeSend: function() {
 					list1.html('...');
 				},
@@ -1612,7 +1612,7 @@
 
 	    function check_login_stat(thing){
 	        return $.ajax({
-	            url: '<?php echo base_url(); ?>home/check_login/'+thing
+	            url: '<?php echo base_url(); ?>meticulous/check_login/'+thing
 	        });
 	    }
 		

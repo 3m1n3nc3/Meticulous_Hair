@@ -7,7 +7,7 @@ $digital_ckeck=$this->db->get_where('category',array('category_id'=>$category))-
         	<div class="col-md-4 col-sm-12 col-xs-12">
                 <h2 class="category_title" style="background-color:<?php echo $color_back;?>;">
                     <span>
-                    	<a href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>" style="color:<?php echo $color_text;?>">
+                    	<a href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>" style="color:<?php echo $color_text;?>">
 							<?php echo $this->crud_model->get_type_name_by_id('category',$category,'category_name'); ?>
                         </a>
                     </span>
@@ -34,7 +34,7 @@ $digital_ckeck=$this->db->get_where('category',array('category_id'=>$category))-
                                             }
                                         ?>
                                         <div class="col-md-12">
-                                            <a href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>/0-<?php echo $brand[0]; ?>" class="brand-box">
+                                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>/0-<?php echo $brand[0]; ?>" class="brand-box">
                                                 
                                                 <?php
 												if(file_exists('uploads/brand_image/'.$this->crud_model->get_type_name_by_id('brand',$brand[0],'logo'))){
@@ -79,7 +79,7 @@ $digital_ckeck=$this->db->get_where('category',array('category_id'=>$category))-
                                 foreach($sub_categories as $row1){
                             ?>
                                 <li>
-                                    <a href="<?php echo base_url();?>home/category/<?php echo $category;?>/<?php echo $row1['sub_category_id'];?>-0">
+                                    <a href="<?php echo base_url();?>meticulous/category/<?php echo $category;?>/<?php echo $row1['sub_category_id'];?>-0">
                                         <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
                                         <?php echo $row1['sub_category_name']; ?>
                                     </a>
@@ -105,7 +105,7 @@ $digital_ckeck=$this->db->get_where('category',array('category_id'=>$category))-
                                                     <span><?php echo $this->crud_model->get_type_name_by_id('category',$category,'category_name'); ?></span>
                                                     <div class="p-line"></div>
                                                     <div class="p-btn">
-                                                        <a href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>" class="btn  btn-theme-transparent btn-theme-xs"><?php echo translate('browse'); ?></a>
+                                                        <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>" class="btn  btn-theme-transparent btn-theme-xs"><?php echo translate('browse'); ?></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,7 +138,7 @@ $digital_ckeck=$this->db->get_where('category',array('category_id'=>$category))-
                                                         	<span><?php echo $this->crud_model->get_type_name_by_id('sub_category',$row2,'sub_category_name'); ?></span>
                                                             <div class="p-line"></div>
                                                             <div class="p-btn">
-                                                            	<a href="<?php echo base_url(); ?>home/category/<?php echo $category; ?>/<?php echo $row2; ?>-0" class="btn  btn-theme-transparent btn-theme-xs"><?php echo translate('browse'); ?></a>
+                                                            	<a href="<?php echo base_url(); ?>meticulous/category/<?php echo $category; ?>/<?php echo $row2; ?>-0" class="btn  btn-theme-transparent btn-theme-xs"><?php echo translate('browse'); ?></a>
                                                             </div>
                                                         </div>
                                                     </div>

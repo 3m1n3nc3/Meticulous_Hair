@@ -84,7 +84,7 @@ class Meticulous extends CI_Controller
 
     function top_bar_right()
     {
-        $this->load->view('front/components/top_bar_right.php');
+        $this->load->view('meticulous/components/top_bar_right.php');
     }
 
     function abnl($abnl)
@@ -111,7 +111,7 @@ class Meticulous extends CI_Controller
             $this->db->where("status", "ok");
             $this->db->where('added_by', json_encode(array('type' => 'vendor', 'id' => $para2)));
             $page_data['sliders'] = $this->db->get('slides')->result_array();
-            $this->load->view('front/vendor/public_profile/home/slider', $page_data);
+            $this->load->view('front/vendor/public_profile/meticulous/slider', $page_data);
         } else {
             $status = $this->db->get_where('vendor', array('vendor_id' => $para1))->row()->status;
             if ($status !== 'approved') {
@@ -203,7 +203,7 @@ class Meticulous extends CI_Controller
             $this->db->where('added_by', json_encode(array('type' => 'vendor', 'id' => $vendor_id)));
             // pagination
             $config['total_rows'] = $this->db->count_all_results('product');
-            $config['base_url'] = base_url() . 'index.php?home/listed/';
+            $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
             $config['per_page'] = 8;
             $config['uri_segment'] = 5;
             $config['cur_page_giv'] = $para2;
@@ -349,14 +349,14 @@ class Meticulous extends CI_Controller
         $this->db->delete('wallet_load');
         $this->session->set_userdata('wallet_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     /* FUNCTION: Loads after successful paypal payment*/
     function wallet_paypal_success()
     {
         $this->session->set_userdata('wallet_id', '');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     function wallet_twocheckout_success()
@@ -384,7 +384,7 @@ class Meticulous extends CI_Controller
             $new_balance = base64_encode($balance + $amount);
             $this->db->where('user_id', $user);
             $this->db->update('user', array('wallet' => $new_balance));
-            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
 
         } else {
             $wallet_id = $this->session->userdata('wallet_id');
@@ -392,7 +392,7 @@ class Meticulous extends CI_Controller
             $this->db->delete('wallet_load');
             $this->session->set_userdata('wallet_id', '');
             $this->session->set_flashdata('alert', 'payment_cancel');
-            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
         }
     }
 
@@ -425,14 +425,14 @@ class Meticulous extends CI_Controller
         $this->db->delete('wallet_load');
         $this->session->set_userdata('wallet_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     /* FUNCTION: Loads after successful vouguepay payment*/
     function wallet_vouguepay_success()
     {
         $this->session->set_userdata('wallet_id', '');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     function wallet_pum_success()
@@ -462,7 +462,7 @@ class Meticulous extends CI_Controller
             $this->db->delete('wallet_load');
             $this->session->set_userdata('wallet_id', '');
             $this->session->set_flashdata('alert', 'payment_cancel');
-            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
         } else {
 
             $data['status'] = 'paid';
@@ -479,7 +479,7 @@ class Meticulous extends CI_Controller
             $this->db->update('user', array('wallet' => $new_balance));
 
             $this->session->set_userdata('wallet_id', '');
-            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
         }
     }
 
@@ -490,7 +490,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('wallet_load');
         $this->session->set_userdata('wallet_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     function wallet_sslcommerz_success()
@@ -511,9 +511,9 @@ class Meticulous extends CI_Controller
             $this->db->update('user', array('wallet' => $new_balance));
 
             $this->session->set_userdata('wallet_id', '');
-            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
         } else {
-            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
         }
     }
 
@@ -524,7 +524,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('wallet_load');
         $this->session->set_userdata('wallet_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     function wallet_sslcommerz_cancel()
@@ -534,7 +534,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('wallet_load');
         $this->session->set_userdata('wallet_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
     }
 
     /* FUNCTION: Loads Customer Profile Page */
@@ -545,31 +545,31 @@ class Meticulous extends CI_Controller
         }
         if ($para1 == "info") {
             $page_data['user_info'] = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->result_array();
-            $this->load->view('front/user/profile', $page_data);
+            $this->load->view('meticulous/user/profile', $page_data);
         } elseif ($para1 == "wishlist") {
-            $this->load->view('front/user/wishlist');
+            $this->load->view('meticulous/user/wishlist');
         } elseif ($para1 == "affiliation_point_earnings") {
             $page_data['affiliation_point_earnings'] = $this->db->order_by('used_at','desc')->get_where('product_affiliation_code_use', array('affiliator_id ' => $this->session->userdata('user_id')),100)->result_array();
             $page_data['affiliation_point_earning_total'] = $this->db->get_where('product_affiliation_points_total', array('affiliator_id ' => $this->session->userdata('user_id')))->row_array();
-            $this->load->view('front/user/affiliation_point_earnings',$page_data);
+            $this->load->view('meticulous/user/affiliation_point_earnings',$page_data);
         } elseif ($para1 == "uploaded_products") {
-            $this->load->view('front/user/uploaded_products');
+            $this->load->view('meticulous/user/uploaded_products');
         } elseif ($para1 == "uploaded_product_status") {
             $page_data['customer_product_id'] = $para2;
-            $this->load->view('front/user/uploaded_product_status', $page_data);
+            $this->load->view('meticulous/user/uploaded_product_status', $page_data);
         } elseif ($para1 == "update_prod_status") {
             $data['is_sold'] = $this->input->post('is_sold');
             $this->db->where('customer_product_id', $para2);
             $this->db->update('customer_product', $data);
-            redirect(base_url() . 'home/profile/part/uploaded_products', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/uploaded_products', 'refresh');
         } elseif ($para1 == "package_payment_info") {
-            $this->load->view('front/user/package_payment_info');
+            $this->load->view('meticulous/user/package_payment_info');
         } elseif ($para1 == "view_package_details") {
             $info = $this->db->get_where('package_payment', array('package_payment_id' => $para2))->row();
             $page_info['det']['status'] = $info->payment_status;
             $page_info['id'] = $para2;
             $page_info['payment_details'] = $info->payment_details;
-            $this->load->view('front/user/view_package_details', $page_info);
+            $this->load->view('meticulous/user/view_package_details', $page_info);
         } elseif ($para1 == "package_set_info") {
             $data['payment_status'] = 'pending';
             $data['payment_details'] = $this->input->post('payment_details');
@@ -582,17 +582,17 @@ class Meticulous extends CI_Controller
             echo 'done';
         } elseif ($para1 == "wallet") {
             if ($this->crud_model->get_type_name_by_id('general_settings', '84', 'value') !== 'ok') {
-                redirect(base_url() . 'home');
+                redirect(base_url() . 'meticulous');
             }
             if ($para2 == "add_view") {
-                $this->load->view('front/user/add_wallet');
+                $this->load->view('meticulous/user/add_wallet');
             } else if ($para2 == "info_view") {
                 $info = $this->db->get_where('wallet_load', array('wallet_load_id' => $para3))->row();
                 $page_info['det']['status'] = $info->status;
                 //$page_info['det']['status'] = $info->status;
                 $page_info['id'] = $para3;
                 $page_info['payment_info'] = $info->payment_details;
-                $this->load->view('front/user/wallet_info', $page_info);
+                $this->load->view('meticulous/user/wallet_info', $page_info);
             } else if ($para2 == "add") {
                 $grand_total = $this->input->post('amount');
                 $amount_in_usd = $grand_total;
@@ -621,9 +621,9 @@ class Meticulous extends CI_Controller
                     //$this->paypal->add_field('amount', $grand_total);
                     $this->paypal->add_field('custom', $id);
                     $this->paypal->add_field('business', $paypal_email);
-                    $this->paypal->add_field('notify_url', base_url() . 'home/wallet_paypal_ipn');
-                    $this->paypal->add_field('cancel_return', base_url() . 'home/wallet_paypal_cancel');
-                    $this->paypal->add_field('return', base_url() . 'home/wallet_paypal_success');
+                    $this->paypal->add_field('notify_url', base_url() . 'meticulous/wallet_paypal_ipn');
+                    $this->paypal->add_field('cancel_return', base_url() . 'meticulous/wallet_paypal_cancel');
+                    $this->paypal->add_field('return', base_url() . 'meticulous/wallet_paypal_success');
 
                     $this->paypal->submit_paypal_post();
                     // submit the fields to paypal
@@ -647,7 +647,7 @@ class Meticulous extends CI_Controller
                     $this->twocheckout_lib->add_field('cart_order_id', $id);   //Required - Cart ID
                     $this->twocheckout_lib->add_field('total', $this->cart->format_number($amount_in_usd));
 
-                    $this->twocheckout_lib->add_field('x_receipt_link_url', base_url() . 'home/wallet_twocheckout_success');
+                    $this->twocheckout_lib->add_field('x_receipt_link_url', base_url() . 'meticulous/wallet_twocheckout_success');
                     $this->twocheckout_lib->add_field('demo', $this->twocheckout_lib->demo);                    //Either Y or N
 
                     $this->twocheckout_lib->submit_form();
@@ -671,9 +671,9 @@ class Meticulous extends CI_Controller
 
                     $this->vouguepay->add_field('total', $amount_in_usd);
 
-                    $this->vouguepay->add_field('notify_url', base_url() . 'home/wallet_vouguepay_ipn');
-                    $this->vouguepay->add_field('fail_url', base_url() . 'home/wallet_vouguepay_cancel');
-                    $this->vouguepay->add_field('success_url', base_url() . 'home/wallet_vouguepay_success');
+                    $this->vouguepay->add_field('notify_url', base_url() . 'meticulous/wallet_vouguepay_ipn');
+                    $this->vouguepay->add_field('fail_url', base_url() . 'meticulous/wallet_vouguepay_cancel');
+                    $this->vouguepay->add_field('success_url', base_url() . 'meticulous/wallet_vouguepay_success');
 
                     $this->vouguepay->submit_vouguepay_post();
                     // submit the fields to vouguepay
@@ -716,14 +716,14 @@ class Meticulous extends CI_Controller
                             $this->db->where('user_id', $user);
                             $this->db->update('user', array('wallet' => $new_balance));
 
-                            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+                            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
                         } else {
                             $this->session->set_flashdata('alert', 'unsuccessful_stripe');
-                            redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+                            redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
                         }
                     } else {
                         $this->session->set_flashdata('alert', 'unsuccessful_stripe');
-                        redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+                        redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
                     }
                 } else if ($method == 'pum') {
 
@@ -752,8 +752,8 @@ class Meticulous extends CI_Controller
                     $this->pum->add_field('service_provider', 'payu_paisa');
                     $this->pum->add_field('udf1', $id);
 
-                    $this->pum->add_field('surl', base_url() . 'home/wallet_pum_success');
-                    $this->pum->add_field('furl', base_url() . 'home/wallet_pum_failure');
+                    $this->pum->add_field('surl', base_url() . 'meticulous/wallet_pum_success');
+                    $this->pum->add_field('furl', base_url() . 'meticulous/wallet_pum_failure');
 
                     // submit the fields to pum
                     $this->pum->submit_pum_post();
@@ -783,9 +783,9 @@ class Meticulous extends CI_Controller
                     $post_data['total_amount'] = $total_amount;
                     $post_data['currency'] = "BDT";
                     $post_data['tran_id'] = date('Ym', $data['timestamp']) . $id;
-                    $post_data['success_url'] = base_url() . "home/wallet_sslcommerz_success";
-                    $post_data['fail_url'] = base_url() . "home/wallet_sslcommerz_fail";
-                    $post_data['cancel_url'] = base_url() . "home/wallet_sslcommerz_cancel";
+                    $post_data['success_url'] = base_url() . "meticulous/wallet_sslcommerz_success";
+                    $post_data['fail_url'] = base_url() . "meticulous/wallet_sslcommerz_fail";
+                    $post_data['cancel_url'] = base_url() . "meticulous/wallet_sslcommerz_cancel";
                     # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
 
                     # EMI INFO
@@ -870,25 +870,25 @@ class Meticulous extends CI_Controller
                 $this->load->view('front/user/wallet');
             }
         } elseif ($para1 == "order_history") {
-            $this->load->view('front/user/order_history');
+            $this->load->view('meticulous/user/order_history');
         } elseif ($para1 == "downloads") {
-            $this->load->view('front/user/downloads');
+            $this->load->view('meticulous/user/downloads');
         } elseif ($para1 == "update_profile") {
             $page_data['user_info'] = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->result_array();
-            $this->load->view('front/user/update_profile', $page_data);
+            $this->load->view('meticulous/user/update_profile', $page_data);
         } elseif ($para1 == "ticket") {
-            $this->load->view('front/user/ticket');
+            $this->load->view('meticulous/user/ticket');
         } elseif ($para1 == "message_box") {
             $page_data['ticket'] = $para2;
             $this->crud_model->ticket_message_viewed($para2, 'user');
-            $this->load->view('front/user/message_box', $page_data);
+            $this->load->view('meticulous/user/message_box', $page_data);
         } elseif ($para1 == "message_view") {
             $page_data['ticket'] = $para2;
             $page_data['message_data'] = $this->db->get_where('ticket', array(
                 'ticket_id' => $para2
             ))->result_array();
             $this->crud_model->ticket_message_viewed($para2, 'user');
-            $this->load->view('front/user/message_view', $page_data);
+            $this->load->view('meticulous/user/message_view', $page_data);
         } elseif ($para1 == "order_tracing") {
             $sale_data = $this->db->get_where('sale', array(
                 'sale_code' => $this->input->post('sale_code')
@@ -900,13 +900,13 @@ class Meticulous extends CI_Controller
             } else {
                 $page_data['status'] = '';
             }
-            $this->load->view('front/user/order_tracing', $page_data);
+            $this->load->view('meticulous/user/order_tracing', $page_data);
         } elseif ($para1 == "post_product") {
-            $this->load->view('front/user/post_product');
+            $this->load->view('meticulous/user/post_product');
         } elseif ($para1 == "post_product_bulk") {
 
             /*if ($this->session->userdata('user_login') != "yes") {
-                redirect(base_url() . 'home/login_set/login', 'refresh');
+                redirect(base_url() . 'meticulous/login_set/login', 'refresh');
             }*/
 
             $physical_categories = $this->db->where('digital', null)->or_where('digital', '')->get('category')->result_array();
@@ -927,7 +927,7 @@ class Meticulous extends CI_Controller
             $page_data['digital_sub_categories'] = $digital_sub_categories;
             $page_data['brands'] = $brands;
 
-            $this->load->view('front/user/post_product_bulk', $page_data);
+            $this->load->view('meticulous/user/post_product_bulk', $page_data);
 
         } elseif ($para1 == "do_post_product") {
             $upload_amount = $this->db->get_where('user', array('user_id' => $this->session->userdata('user_id')))->row()->product_upload;
@@ -999,7 +999,7 @@ class Meticulous extends CI_Controller
                 $page_data['part'] = 'info';
             } elseif ($para2 == "wallet") {
                 if ($this->crud_model->get_type_name_by_id('general_settings', '84', 'value') !== 'ok') {
-                    redirect(base_url() . 'home');
+                    redirect(base_url() . 'meticulous');
                 } else {
                     $page_data['part'] = 'wallet';
                 }
@@ -1049,7 +1049,7 @@ class Meticulous extends CI_Controller
             $page_data['page_name'] = "user";
             $page_data['asset_page'] = "user_profile";
             $page_data['page_title'] = translate('my_profile');
-            $this->load->view('front/index', $page_data);
+            $this->load->view('meticulous/index', $page_data);
         }
         /*$page_data['all_products'] = $this->db->get_where('user', array(
             'user_id' => $this->session->userdata('user_id')
@@ -1062,7 +1062,7 @@ class Meticulous extends CI_Controller
     public function customer_product_bulk_upload()
     {
         if ($this->session->userdata('user_login') != "yes") {
-            redirect(base_url() . 'home/login_set/login', 'refresh');
+            redirect(base_url() . 'meticulous/login_set/login', 'refresh');
         }
 
         $physical_categories = $this->db->where('digital', null)->or_where('digital', '')->get('category')->result_array();
@@ -1088,15 +1088,15 @@ class Meticulous extends CI_Controller
 
     public function customer_product_bulk_upload_save()
     {
-        if(demo()){
-            $this->session->set_flashdata('error',translate('This operation is invalid for demo'));
-            redirect('home/profile/part/post_product_bulk');
+        if(demo()) {
+            $this->session->set_flashdata('error', translate('This operation is invalid for demo'));
+            redirect('meticulous/profile/part/post_product_bulk');
         }
 
         if (!file_exists($_FILES['bulk_file']['tmp_name']) || !is_uploaded_file($_FILES['bulk_file']['tmp_name'])) {
             $_SESSION['error'] = translate('File is not selected');
-            //redirect('home/customer_product_bulk_upload');
-            redirect(base_url() . 'home/profile/part/post_product_bulk');
+            //redirect('meticulous/customer_product_bulk_upload');
+            redirect(base_url() . 'meticulous/profile/part/post_product_bulk');
         }
 
         $inputFileName = $_FILES['bulk_file']['tmp_name'];
@@ -1111,8 +1111,8 @@ class Meticulous extends CI_Controller
 
             if (!isset($sheetData[1])) {
                 $_SESSION['error'] = translate('Column names are missing');
-                //redirect('home/customer_product_bulk_upload');
-                redirect(base_url() . 'home/profile/part/post_product_bulk');
+                //redirect('meticulous/customer_product_bulk_upload');
+                redirect(base_url() . 'meticulous/profile/part/post_product_bulk');
             }
 
             foreach ($sheetData[1] as $colk => $colv) {
@@ -1122,8 +1122,8 @@ class Meticulous extends CI_Controller
 
             if (!isset($sheetData[2])) {
                 $_SESSION['error'] = translate('Data missing');
-                //redirect('home/customer_product_bulk_upload');
-                redirect(base_url() . 'home/profile/part/post_product_bulk');
+                //redirect('meticulous/customer_product_bulk_upload');
+                redirect(base_url() . 'meticulous/profile/part/post_product_bulk');
             }
 
             for ($i = 2; $i <= count($sheetData); $i++) {
@@ -1148,8 +1148,8 @@ class Meticulous extends CI_Controller
 
         //exit;
         $_SESSION['success'] = translate('Products uploaded');
-        //redirect('home/customer_product_bulk_upload');
-        redirect(base_url() . 'home/profile/part/post_product_bulk');
+        //redirect('meticulous/customer_product_bulk_upload');
+        redirect(base_url() . 'meticulous/profile/part/post_product_bulk');
 
     }
 
@@ -1317,7 +1317,7 @@ class Meticulous extends CI_Controller
         $this->db->where('from_where', '{"type":"user","id":"' . $id . '"}');
         $this->db->or_where('to_where', '{"type":"user","id":"' . $id . '"}');
         $config['total_rows'] = $this->db->count_all_results('ticket');
-        $config['base_url'] = base_url() . 'home/ticket_listed/';
+        $config['base_url'] = base_url() . 'meticulous/ticket_listed/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1366,7 +1366,7 @@ class Meticulous extends CI_Controller
         $id = $this->session->userdata('user_id');
         $this->db->where('buyer', $id);
         $config['total_rows'] = $this->db->count_all_results('sale');
-        $config['base_url'] = base_url() . 'home/order_listed/';
+        $config['base_url'] = base_url() . 'meticulous/order_listed/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1416,7 +1416,7 @@ class Meticulous extends CI_Controller
         $this->db->where_in('product_id', $ids);
 
         $config['total_rows'] = $this->db->count_all_results('product');;
-        $config['base_url'] = base_url() . 'home/wish_listed/';
+        $config['base_url'] = base_url() . 'meticulous/wish_listed/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1467,7 +1467,7 @@ class Meticulous extends CI_Controller
         $this->db->where('added_by', $id);
 
         $config['total_rows'] = $this->db->count_all_results('customer_product');;
-        $config['base_url'] = base_url() . 'home/uploaded_products_list/';
+        $config['base_url'] = base_url() . 'meticulous/uploaded_products_list/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1517,7 +1517,7 @@ class Meticulous extends CI_Controller
         $this->db->where('user_id', $id);
 
         $config['total_rows'] = $this->db->count_all_results('package_payment');;
-        $config['base_url'] = base_url() . 'home/package_payment_list/';
+        $config['base_url'] = base_url() . 'meticulous/package_payment_list/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1566,7 +1566,7 @@ class Meticulous extends CI_Controller
         $this->db->where('user', $id);
 
         $config['total_rows'] = $this->db->count_all_results('wallet_load');;
-        $config['base_url'] = base_url() . 'home/wallet_listed/';
+        $config['base_url'] = base_url() . 'meticulous/wallet_listed/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1625,7 +1625,7 @@ class Meticulous extends CI_Controller
         }
 
         $config['total_rows'] = $this->db->count_all_results('product');;
-        $config['base_url'] = base_url() . 'home/downloads_listed/';
+        $config['base_url'] = base_url() . 'meticulous/downloads_listed/';
         $config['per_page'] = 5;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para2;
@@ -1791,9 +1791,9 @@ class Meticulous extends CI_Controller
             $query = $this->input->post('query');
             $p = explode(';', $range);
             $this->session->set_flashdata('query', $query);
-            redirect(base_url() . 'home/category/' . $category . '/' . $sub_category . '-' . $brand . '/' . $p[0] . '/' . $p[1] . '/' . $query, 'refresh');
+            redirect(base_url() . 'meticulous/category/' . $category . '/' . $sub_category . '-' . $brand . '/' . $p[0] . '/' . $p[1] . '/' . $query, 'refresh');
         } else if ($param == 'top') {
-            redirect(base_url() . 'home/category/' . $category, 'refresh');
+            redirect(base_url() . 'meticulous/category/' . $category, 'refresh');
         }
     }
 
@@ -1822,12 +1822,12 @@ class Meticulous extends CI_Controller
         if ($this->crud_model->get_settings_value('general_settings', 'vendor_system') !== 'ok') {
             // echo $search = $this->input->post('query');
 
-            redirect(base_url() . 'home/category/' . $category . '/0-0/0/0/' . $search, 'refresh');
+            redirect(base_url() . 'meticulous/category/' . $category . '/0-0/0/0/' . $search, 'refresh');
         } else {
             if ($type == 'vendor') {
-                redirect(base_url() . 'home/store_locator/' . $search, 'refresh');
+                redirect(base_url() . 'meticulous/store_locator/' . $search, 'refresh');
             } else if ($type == 'product') {
-                redirect(base_url() . 'home/category/' . $category . '/0-0/0/0/' . $search, 'refresh');
+                redirect(base_url() . 'meticulous/category/' . $category . '/0-0/0/0/' . $search, 'refresh');
             }
         }
     }
@@ -1871,7 +1871,7 @@ class Meticulous extends CI_Controller
 
         // pagination
         $config['total_rows'] = $this->db->count_all_results('product');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
         $config['per_page'] = 12;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para1;
@@ -2047,7 +2047,7 @@ class Meticulous extends CI_Controller
 
             // pagination
             $config['total_rows'] = $this->db->count_all_results('product');
-            $config['base_url'] = base_url() . 'index.php?home/listed/';
+            $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
             if ($featured !== 'ok') {
                 $config['per_page'] = 12;
             } else if ($featured == 'ok') {
@@ -2255,10 +2255,10 @@ class Meticulous extends CI_Controller
             $page_data['page_title'] = $parmalink;
             $page_data['page_items'] = $pagef->result_array();
             if ($this->session->userdata('admin_login') !== 'yes' && $pagef->row()->status !== 'ok') {
-                redirect(base_url() . 'home/', 'refresh');
+                redirect(base_url() . 'meticulous/', 'refresh');
             }
         } else {
-            redirect(base_url() . 'home/', 'refresh');
+            redirect(base_url() . 'meticulous/', 'refresh');
         }
         $this->load->view('meticulous/index', $page_data);
     }
@@ -2722,7 +2722,7 @@ class Meticulous extends CI_Controller
                 $page_data['url'] = $this->facebook->login_url();
                 /*
                 $this->facebook->getLoginUrl(array(
-                    'redirect_uri' => site_url('home/login_set/back/' . $para2),
+                    'redirect_uri' => site_url('meticulous/login_set/back/' . $para2),
                     'scope' => array(
                         "email"
                     ) // permissions here
@@ -2730,7 +2730,7 @@ class Meticulous extends CI_Controller
                 */
                 /*
                 $permissions        = ['email']; // optional
-                $page_data['url']   = $this->facebook->getLoginUrl(site_url('home/login_set/back/' . $para2), $permissions);
+                $page_data['url']   = $this->facebook->getLoginUrl(site_url('meticulous/login_set/back/' . $para2), $permissions);
                 */
                 //redirect($data['url']);
             }
@@ -2740,7 +2740,7 @@ class Meticulous extends CI_Controller
                 // Get user's data and print it
                 $atok = $this->facebook->getAccessToken();
                 $page_data['user'] = $this->facebook->api('/me?fields=email,first_name,last_name&access_token={'.$atok.'}');
-                $page_data['url']  = site_url('home/login_set/back/' . $para2); // Logs off application
+                $page_data['url']  = site_url('meticulous/login_set/back/' . $para2); // Logs off application
                 //print_r($user);
             }
             */
@@ -3123,7 +3123,7 @@ class Meticulous extends CI_Controller
     function rating($product_id, $rating)
     {
         if ($this->session->userdata('user_login') != "yes") {
-            redirect(base_url() . 'home/login/', 'refresh');
+            redirect(base_url() . 'meticulous/login/', 'refresh');
         }
         if ($rating <= 5) {
             if ($this->crud_model->set_rating($product_id, $rating) == 'yes') {
@@ -3163,7 +3163,7 @@ class Meticulous extends CI_Controller
             echo json_encode($return);
         } else {
             if ($this->session->userdata('compare') == '[]') {
-                redirect(base_url() . 'home/', 'refresh');
+                redirect(base_url() . 'meticulous/', 'refresh');
             }
             $page_data['page_name'] = "others/compare";
             $page_data['asset_page'] = "compare";
@@ -3519,7 +3519,7 @@ class Meticulous extends CI_Controller
     {
         $carted = $this->cart->contents();
         if (count($carted) <= 0) {
-            redirect(base_url() . 'home/', 'refresh');
+            redirect(base_url() . 'meticulous/', 'refresh');
         }
 
         $carted = $this->cart->contents();
@@ -3638,9 +3638,9 @@ class Meticulous extends CI_Controller
                 //$this->paypal->add_field('currency_code', 'currency_code()');
                 $this->paypal->add_field('custom', $sale_id);
                 $this->paypal->add_field('business', $paypal_email);
-                $this->paypal->add_field('notify_url', base_url() . 'home/paypal_ipn');
-                $this->paypal->add_field('cancel_return', base_url() . 'home/paypal_cancel');
-                $this->paypal->add_field('return', base_url() . 'home/paypal_success');
+                $this->paypal->add_field('notify_url', base_url() . 'meticulous/paypal_ipn');
+                $this->paypal->add_field('cancel_return', base_url() . 'meticulous/paypal_cancel');
+                $this->paypal->add_field('return', base_url() . 'meticulous/paypal_success');
 
                 $this->paypal->submit_paypal_post();
                 // submit the fields to paypal
@@ -3703,7 +3703,7 @@ class Meticulous extends CI_Controller
 
                 $this->twocheckout_lib->add_field('total', $this->cart->format_number(($grand_total / $exchange)));
 
-                $this->twocheckout_lib->add_field('x_receipt_link_url', base_url() . 'home/twocheckout_success');
+                $this->twocheckout_lib->add_field('x_receipt_link_url', base_url() . 'meticulous/twocheckout_success');
                 $this->twocheckout_lib->add_field('demo', $this->twocheckout_lib->demo);                    //Either Y or N
 
 
@@ -3781,9 +3781,9 @@ class Meticulous extends CI_Controller
 
                 $this->vouguepay->add_field('total', ($grand_total / $exchange));
                 $this->vouguepay->add_field('cur', 'USD');
-                $this->vouguepay->add_field('notify_url', base_url() . 'home/vouguepay_ipn');
-                $this->vouguepay->add_field('fail_url', base_url() . 'home/vouguepay_cancel');
-                $this->vouguepay->add_field('success_url', base_url() . 'home/vouguepay_success');
+                $this->vouguepay->add_field('notify_url', base_url() . 'meticulous/vouguepay_ipn');
+                $this->vouguepay->add_field('fail_url', base_url() . 'meticulous/vouguepay_cancel');
+                $this->vouguepay->add_field('success_url', base_url() . 'meticulous/vouguepay_success');
 
                 $this->vouguepay->submit_vouguepay_post();
                 // submit the fields to vouguepay
@@ -3860,9 +3860,9 @@ class Meticulous extends CI_Controller
                 $this->session->set_userdata('couponer', '');
                 //echo $sale_id;
                 if ($this->session->userdata('user_login') == 'yes') {
-                    redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                    redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
                 } else {
-                    redirect(base_url() . 'home/guest_invoice/' . $data['guest_id'], 'refresh');
+                    redirect(base_url() . 'meticulous/guest_invoice/' . $data['guest_id'], 'refresh');
                 }
             }
         }
@@ -3926,10 +3926,10 @@ class Meticulous extends CI_Controller
                     $this->cart->destroy();
                     $this->session->set_userdata('couponer', '');
                     //echo $sale_id;
-                    redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                    redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
                 }
             } else {
-                redirect(base_url() . 'home/profile/part/wallet/', 'refresh');
+                redirect(base_url() . 'meticulous/profile/part/wallet/', 'refresh');
             }
         }
         else if ($this->input->post('payment_type') == 'stripe') {
@@ -4023,18 +4023,18 @@ class Meticulous extends CI_Controller
                         $this->cart->destroy();
                         $this->session->set_userdata('couponer', '');
                         if ($this->session->userdata('user_login') == 'yes') {
-                            redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                            redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
                         } else {
-                            redirect(base_url() . 'home/guest_invoice/' . $data['guest_id'], 'refresh');
+                            redirect(base_url() . 'meticulous/guest_invoice/' . $data['guest_id'], 'refresh');
                         }
                     } else {
                         $this->session->set_flashdata('alert', 'unsuccessful_stripe');
-                        redirect(base_url() . 'home/cart_checkout/', 'refresh');
+                        redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
                     }
 
                 } else {
                     $this->session->set_flashdata('alert', 'unsuccessful_stripe');
-                    redirect(base_url() . 'home/cart_checkout/', 'refresh');
+                    redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
                 }
             }
         }
@@ -4117,8 +4117,8 @@ class Meticulous extends CI_Controller
                 $this->pum->add_field('service_provider', 'payu_paisa');
                 $this->pum->add_field('udf1', $sale_id);
 
-                $this->pum->add_field('surl', base_url() . 'home/pum_success');
-                $this->pum->add_field('furl', base_url() . 'home/pum_failure');
+                $this->pum->add_field('surl', base_url() . 'meticulous/pum_success');
+                $this->pum->add_field('furl', base_url() . 'meticulous/pum_failure');
 
                 // submit the fields to pum
                 $this->pum->submit_pum_post();
@@ -4195,9 +4195,9 @@ class Meticulous extends CI_Controller
                 $post_data['total_amount'] = $total_amount;
                 $post_data['currency'] = "BDT";
                 $post_data['tran_id'] = $data['sale_code'];
-                $post_data['success_url'] = base_url() . "home/sslcommerz_success";
-                $post_data['fail_url'] = base_url() . "home/sslcommerz_fail";
-                $post_data['cancel_url'] = base_url() . "home/sslcommerz_cancel";
+                $post_data['success_url'] = base_url() . "meticulous/sslcommerz_success";
+                $post_data['fail_url'] = base_url() . "meticulous/sslcommerz_fail";
+                $post_data['cancel_url'] = base_url() . "meticulous/sslcommerz_cancel";
                 # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
 
                 # EMI INFO
@@ -4303,7 +4303,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('sale');
         $this->session->set_userdata('sale_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/cart_checkout/', 'refresh');
+        redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
     }
 
     /* FUNCTION: Loads after successful paypal payment*/
@@ -4336,9 +4336,9 @@ class Meticulous extends CI_Controller
         $this->email_model->email_invoice($sale_id);
         $this->session->set_userdata('sale_id', '');
         if ($this->session->userdata('user_login') == 'yes') {
-            redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+            redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
         } else {
-            redirect(base_url() . 'home/guest_invoice/' . $guest_id, 'refresh');
+            redirect(base_url() . 'meticulous/guest_invoice/' . $guest_id, 'refresh');
         }
     }
 
@@ -4369,7 +4369,7 @@ class Meticulous extends CI_Controller
             $this->db->delete('sale');
             $this->session->set_userdata('sale_id', '');
             $this->session->set_flashdata('alert', 'payment_cancel');
-            redirect(base_url() . 'home/cart_checkout/', 'refresh');
+            redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
         } else {
 
             $sale_id = $this->session->userdata('sale_id');
@@ -4421,9 +4421,9 @@ class Meticulous extends CI_Controller
             $this->cart->destroy();
             $this->session->set_userdata('couponer', '');
             if ($this->session->userdata('user_login') == 'yes') {
-                redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
             } else {
-                redirect(base_url() . 'home/guest_invoice/' . $guest_id, 'refresh');
+                redirect(base_url() . 'meticulous/guest_invoice/' . $guest_id, 'refresh');
             }
         }
     }
@@ -4435,7 +4435,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('sale');
         $this->session->set_userdata('sale_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/cart_checkout/', 'refresh');
+        redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
     }
 
     function twocheckout_success()
@@ -4492,9 +4492,9 @@ class Meticulous extends CI_Controller
             $this->email_model->email_invoice($sale_id);
             $this->session->set_userdata('sale_id', '');
             if ($this->session->userdata('user_login') == 'yes') {
-                redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
             } else {
-                redirect(base_url() . 'home/guest_invoice/' . $guest_id, 'refresh');
+                redirect(base_url() . 'meticulous/guest_invoice/' . $guest_id, 'refresh');
             }
 
         } else {
@@ -4504,7 +4504,7 @@ class Meticulous extends CI_Controller
             $this->db->delete('sale');
             $this->session->set_userdata('sale_id', '');
             $this->session->set_flashdata('alert', 'payment_cancel');
-            //redirect(base_url() . 'home/cart_checkout/', 'refresh');
+            //redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
         }
     }
 
@@ -4542,7 +4542,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('sale');
         $this->session->set_userdata('sale_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/cart_checkout/', 'refresh');
+        redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
     }
 
     /* FUNCTION: Loads after successful vouguepay payment*/
@@ -4577,9 +4577,9 @@ class Meticulous extends CI_Controller
         $this->email_model->email_invoice($sale_id);
         $this->session->set_userdata('sale_id', '');
         if ($this->session->userdata('user_login') == 'yes') {
-            redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+            redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
         } else {
-            redirect(base_url() . 'home/guest_invoice/' . $guest_id, 'refresh');
+            redirect(base_url() . 'meticulous/guest_invoice/' . $guest_id, 'refresh');
         }
     }
 
@@ -4630,9 +4630,9 @@ class Meticulous extends CI_Controller
             $this->email_model->email_invoice($sale_id);
             $this->session->set_userdata('sale_id', '');
             if ($this->session->userdata('user_login') == 'yes') {
-                redirect(base_url() . 'home/invoice/' . $sale_id, 'refresh');
+                redirect(base_url() . 'meticulous/invoice/' . $sale_id, 'refresh');
             } else {
-                redirect(base_url() . 'home/guest_invoice/' . $guest_id, 'refresh');
+                redirect(base_url() . 'meticulous/guest_invoice/' . $guest_id, 'refresh');
             }
         } else {
             redirect(base_url(), 'refresh');
@@ -4646,7 +4646,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('sale');
         $this->session->set_userdata('sale_id', '');
         $this->session->set_flashdata('alert', 'payment_failed');
-        redirect(base_url() . 'home/cart_checkout', 'refresh');
+        redirect(base_url() . 'meticulous/cart_checkout', 'refresh');
     }
 
     function sslcommerz_cancel()
@@ -4656,7 +4656,7 @@ class Meticulous extends CI_Controller
         $this->db->delete('sale');
         $this->session->set_userdata('sale_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/cart_checkout/', 'refresh');
+        redirect(base_url() . 'meticulous/cart_checkout/', 'refresh');
     }
 
     /* FUNCTION: Concerning wishlist*/
@@ -4716,7 +4716,7 @@ class Meticulous extends CI_Controller
 
         // pagination
         $config['total_rows'] = $this->db->count_all_results('blog');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
         $config['per_page'] = 3;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para1;
@@ -4777,7 +4777,7 @@ class Meticulous extends CI_Controller
         $this->db->where('status', 'approved');
         // pagination
         $config['total_rows'] = $this->db->count_all_results('vendor');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
         $config['per_page'] = 6;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para1;
@@ -4888,7 +4888,7 @@ class Meticulous extends CI_Controller
 
         // pagination
         $config['total_rows'] = $this->db->count_all_results('product');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
         $config['per_page'] = 12;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para1;
@@ -5005,7 +5005,7 @@ class Meticulous extends CI_Controller
         }
         // pagination
         $config['total_rows'] = $this->db->count_all_results('customer_product');
-        $config['base_url'] = base_url() . 'index.php?home/listed/';
+        $config['base_url'] = base_url() . 'index.php?meticulous/listed/';
         $config['per_page'] = 12;
         $config['uri_segment'] = 5;
         $config['cur_page_giv'] = $para1;
@@ -5176,11 +5176,11 @@ class Meticulous extends CI_Controller
                     $this->load->view('front/index', $page_data);
 
                 } else {
-                    redirect(base_url('home/login_set/login'), 'refresh');
+                    redirect(base_url('meticulous/login_set/login'), 'refresh');
                 }
             } elseif ($para1 == 'do_purchase') {
                 if ($this->session->userdata('user_login') != "yes") {
-                    redirect(base_url() . 'home/login_set/login', 'refresh');
+                    redirect(base_url() . 'meticulous/login_set/login', 'refresh');
                 }
 
                 if ($this->input->post('payment_type') == 'paypal') {
@@ -5216,9 +5216,9 @@ class Meticulous extends CI_Controller
                     $this->paypal->add_field('currency_code', 'USD');
                     $this->paypal->add_field('custom', $payment_id);
 
-                    $this->paypal->add_field('notify_url', base_url() . 'home/cus_paypal_ipn');
-                    $this->paypal->add_field('cancel_return', base_url() . 'home/cus_paypal_cancel');
-                    $this->paypal->add_field('return', base_url() . 'home/cus_paypal_success');
+                    $this->paypal->add_field('notify_url', base_url() . 'meticulous/cus_paypal_ipn');
+                    $this->paypal->add_field('cancel_return', base_url() . 'meticulous/cus_paypal_cancel');
+                    $this->paypal->add_field('return', base_url() . 'meticulous/cus_paypal_success');
 
                     // submit the fields to paypal
                     $this->paypal->submit_paypal_post();
@@ -5290,16 +5290,16 @@ class Meticulous extends CI_Controller
                             }
 
                             $this->session->set_flashdata('alert', 'stripe_success');
-                            redirect(base_url() . 'home/invoice/'.$payment->package_payment_id, 'refresh');*/
+                            redirect(base_url() . 'meticulous/invoice/'.$payment->package_payment_id, 'refresh');*/
 
-                            redirect(base_url() . 'home/profile/part/payment_info', 'refresh');
+                            redirect(base_url() . 'meticulous/profile/part/payment_info', 'refresh');
                         } else {
                             $this->session->set_flashdata('alert', 'stripe_failed');
-                            redirect(base_url() . 'home/premium_package', 'refresh');
+                            redirect(base_url() . 'meticulous/premium_package', 'refresh');
                         }
                     } else {
                         $package_id = $this->input->post('package_id');
-                        redirect(base_url() . 'home/premium_package/purchase/' . $package_id, 'refresh');
+                        redirect(base_url() . 'meticulous/premium_package/purchase/' . $package_id, 'refresh');
                     }
                 } else if ($this->input->post('payment_type') == 'wallet') {
                     $balance = $this->wallet_model->user_balance();
@@ -5344,9 +5344,9 @@ class Meticulous extends CI_Controller
 
                         $this->wallet_model->reduce_user_balance($amount, $user_id);
                         recache();
-                        redirect(base_url() . 'home/profile/part/payment_info', 'refresh');
+                        redirect(base_url() . 'meticulous/profile/part/payment_info', 'refresh');
                     } else {
-                        redirect(base_url() . 'home/premium_package', 'refresh');
+                        redirect(base_url() . 'meticulous/premium_package', 'refresh');
                     }
                 } else if ($this->input->post('payment_type') == 'pum') {
 
@@ -5386,8 +5386,8 @@ class Meticulous extends CI_Controller
                     $this->pum->add_field('service_provider', 'payu_paisa');
                     $this->pum->add_field('udf1', $payment_id);
 
-                    $this->pum->add_field('surl', base_url() . 'home/cus_pum_success');
-                    $this->pum->add_field('furl', base_url() . 'home/cus_pum_failure');
+                    $this->pum->add_field('surl', base_url() . 'meticulous/cus_pum_success');
+                    $this->pum->add_field('furl', base_url() . 'meticulous/cus_pum_failure');
 
                     // submit the fields to pum
                     $this->pum->submit_pum_post();
@@ -5426,9 +5426,9 @@ class Meticulous extends CI_Controller
                     $post_data['total_amount'] = $amount;
                     $post_data['currency'] = "BDT";
                     $post_data['tran_id'] = $data['payment_code'];
-                    $post_data['success_url'] = base_url() . "home/cus_sslcommerz_success";
-                    $post_data['fail_url'] = base_url() . "home/cus_sslcommerz_fail";
-                    $post_data['cancel_url'] = base_url() . "home/cus_sslcommerz_cancel";
+                    $post_data['success_url'] = base_url() . "meticulous/cus_sslcommerz_success";
+                    $post_data['fail_url'] = base_url() . "meticulous/cus_sslcommerz_fail";
+                    $post_data['cancel_url'] = base_url() . "meticulous/cus_sslcommerz_cancel";
                     # $post_data['multi_card_name'] = "mastercard,visacard,amexcard";  # DISABLE TO DISPLAY ALL AVAILABLE
 
                     # EMI INFO
@@ -5553,16 +5553,16 @@ class Meticulous extends CI_Controller
         recache();
         $this->session->set_userdata('payment_id', '');
         $this->session->set_flashdata('alert', 'paypal_cancel');
-        redirect(base_url() . 'home/premium_package', 'refresh');
+        redirect(base_url() . 'meticulous/premium_package', 'refresh');
     }
 
     /* FUNCTION: Loads after successful paypal payment*/
     function cus_paypal_success()
     {
         $this->session->set_flashdata('alert', 'paypal_success');
-        // redirect(base_url() . 'home/invoice/'.$this->session->userdata('payment_id'), 'refresh');
+        // redirect(base_url() . 'meticulous/invoice/'.$this->session->userdata('payment_id'), 'refresh');
         $this->session->set_userdata('payment_id', '');
-        redirect(base_url() . 'home/profile/part/payment_info', 'refresh');
+        redirect(base_url() . 'meticulous/profile/part/payment_info', 'refresh');
     }
 
     function cus_pum_success()
@@ -5593,7 +5593,7 @@ class Meticulous extends CI_Controller
             recache();
             $this->session->set_userdata('payment_id', '');
             $this->session->set_flashdata('alert', 'payment_cancel');
-            redirect(base_url() . 'home/premium_package', 'refresh');
+            redirect(base_url() . 'meticulous/premium_package', 'refresh');
         } else {
             $payment_id = $this->session->userdata('payment_id');
 
@@ -5623,9 +5623,9 @@ class Meticulous extends CI_Controller
             $this->db->update('user', $data1);
 
             $this->session->set_flashdata('alert', 'payment_success');
-            // redirect(base_url() . 'home/invoice/'.$this->session->userdata('payment_id'), 'refresh');
+            // redirect(base_url() . 'meticulous/invoice/'.$this->session->userdata('payment_id'), 'refresh');
             $this->session->set_userdata('payment_id', '');
-            redirect(base_url() . 'home/profile/part/payment_info', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/payment_info', 'refresh');
         }
     }
 
@@ -5637,7 +5637,7 @@ class Meticulous extends CI_Controller
         recache();
         $this->session->set_userdata('payment_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/premium_package', 'refresh');
+        redirect(base_url() . 'meticulous/premium_package', 'refresh');
     }
 
     function cus_sslcommerz_success()
@@ -5672,11 +5672,11 @@ class Meticulous extends CI_Controller
             $this->db->update('user', $data1);
 
             $this->session->set_flashdata('alert', 'payment_success');
-            // redirect(base_url() . 'home/invoice/'.$this->session->userdata('payment_id'), 'refresh');
+            // redirect(base_url() . 'meticulous/invoice/'.$this->session->userdata('payment_id'), 'refresh');
             $this->session->set_userdata('payment_id', '');
-            redirect(base_url() . 'home/profile/part/payment_info', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/payment_info', 'refresh');
         } else {
-            redirect(base_url() . 'home/profile/part/payment_info', 'refresh');
+            redirect(base_url() . 'meticulous/profile/part/payment_info', 'refresh');
         }
     }
 
@@ -5688,7 +5688,7 @@ class Meticulous extends CI_Controller
         recache();
         $this->session->set_userdata('payment_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/premium_package', 'refresh');
+        redirect(base_url() . 'meticulous/premium_package', 'refresh');
     }
 
     function cus_sslcommerz_cancel()
@@ -5699,7 +5699,7 @@ class Meticulous extends CI_Controller
         recache();
         $this->session->set_userdata('payment_id', '');
         $this->session->set_flashdata('alert', 'payment_cancel');
-        redirect(base_url() . 'home/premium_package', 'refresh');
+        redirect(base_url() . 'meticulous/premium_package', 'refresh');
     }
 
     function ups_rate($value = '')
@@ -5798,9 +5798,9 @@ class Meticulous extends CI_Controller
     {
         header("Content-type: text/xml");
         $otherurls = array(
-            base_url() . 'home/contact/',
-            base_url() . 'home/legal/terms_conditions',
-            base_url() . 'home/legal/privacy_policy'
+            base_url() . 'meticulous/contact/',
+            base_url() . 'meticulous/legal/terms_conditions',
+            base_url() . 'meticulous/legal/privacy_policy'
         );
         $producturls = array();
         $products = $this->db->get_where('product', array('status' => 'ok'))->result_array();

@@ -2,13 +2,13 @@
 	<div class="widget shop-categories">
         <div class="widget-content">
             <ul>
-                <li style="background: #e9e9e9;"><a href="<?php echo base_url(); ?>home/blog"><?php echo translate('blog_categories');?></a></li>
+                <li style="background: #e9e9e9;"><a href="<?php echo base_url(); ?>meticulous/blog"><?php echo translate('blog_categories');?></a></li>
                 <?php
                     $blogs=$this->db->get('blog_category')->result_array();
                     foreach($blogs as $row){
                 ?>
                     <li>
-                        <a href="<?php echo base_url(); ?>home/blog/<?php echo $row['blog_category_id']; ?>">
+                        <a href="<?php echo base_url(); ?>meticulous/blog/<?php echo $row['blog_category_id']; ?>">
                             <?php echo $row['name']; ?> 
                         </a>
                     </li>

@@ -20,19 +20,32 @@
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
   .single-welcome-slide {
-    height: 450px!important;
+    height: 400px!important;
+  }
+  
+  .single-welcome-slide .welcome-text h2 {
+    font-size: 40px!important; 
   }
 }
 
 @media only screen and (max-width: 767px) and (min-width: 626px) {
   .single-welcome-slide {
-    height: 355px!important;
+    height: 345px!important;
   }
 }
 
 @media only screen and (max-width: 625px) and (min-width: 300px) {
   .single-welcome-slide {
-    height: 280px!important;
+    height: 225px!important;
+  }
+  
+  .single-welcome-slide .welcome-text p {
+    margin-bottom: 15px!important;
+  }
+  
+  .single-welcome-slide .welcome-text h2 {
+    font-size: 25px!important;
+    margin-bottom: 20px!important;
   }
 }
 
@@ -219,4 +232,36 @@
 
 .logo_top {
   background: #ddbd26 !important;
+}
+
+.information-title {
+  border-bottom: 3px solid #a37217!important;
+  background-color: #bca858!important;
+}
+
+.btn-theme {
+  background-color: #bca858!important;
+  border-color: #bca858!important; 
+}
+
+.btn-theme-dark {
+  background-color: #d8a444!important;
+  border-color: #d8a444!important; 
+}
+
+.block-title.alt .fa {
+  background-color: #bca858!important; 
+}
+
+.product-single .buttons .quantity {
+  border: 1px solid #bca858!important;
+}
+
+.product-single .buttons .quantity .btn {
+  background-color: #bca858!important; 
+  border: 1px solid #bca858!important;
+} 
+
+.product-single .buttons .quantity .qty {
+  border: 1px solid #bca858!important;
 }

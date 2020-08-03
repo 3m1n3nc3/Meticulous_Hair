@@ -18,7 +18,7 @@
                     foreach($vendors as $row){
                 ?>
                 <div class="p-item">
-                    <a href="<?php echo base_url(); ?>home/vendor_profile/<?php echo $row['vendor_id']; ?>">
+                    <a href="<?php echo base_url(); ?>meticulous/vendor_profile/<?php echo $row['vendor_id']; ?>">
                         <?php
                         if(!file_exists('uploads/vendor_logo_image/logo_'.$row['vendor_id'].'.png')){
                         ?>

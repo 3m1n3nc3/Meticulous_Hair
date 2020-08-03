@@ -25,7 +25,7 @@
                 <div class="all-brands-list">
                     <div class="brands-list-heading">
                         <div class="heading-text">
-                            <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>">
+                            <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>">
                                 <?php echo $row['category_name'];?>
                                 (<?php
                                     echo $this->crud_model->is_publishable_count('category',$row['category_id']);
@@ -55,7 +55,7 @@
 										?>
                                     </td>
                                     <td class="brand-name">
-                                        <a href="<?php echo base_url(); ?>home/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_category_id'];?>">
+                                        <a href="<?php echo base_url(); ?>meticulous/category/<?php echo $row['category_id']; ?>/<?php echo $row1['sub_category_id'];?>">
                                             <?php echo $row1['sub_category_name'];?>
                                             (<?php echo $this->crud_model->is_publishable_count('sub_category',$row1['sub_category_id']); ?>)
                                         </a>

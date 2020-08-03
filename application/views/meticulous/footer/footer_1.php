@@ -14,10 +14,11 @@
 	$pinterest =  $this->db->get_where('social_links',array('type' => 'pinterest'))->row()->value;
 	
 	$footer_text =  $this->db->get_where('general_settings',array('type' => 'footer_text'))->row()->value;
-	$footer_category =  json_decode($this->db->get_where('general_settings',array('type' => 'footer_category'))->row()->value);
+	$footer_category =  json_decode($this->db->get_where('general_settings',array('type' => 'footer_category'))->row()->value); 
 ?>
 
     <!-- Call To Action Area Start -->
+    <?php if(in_array(($asset_page ?? $page_name), ['home', 'page', 'contact'])):?> 
     <section class="akame-cta-area bg-gray section-padding-80">
         <div class="container">
             <div class="row">
@@ -26,7 +27,7 @@
                         <h2>Make <?php echo $system_title; ?> Your <br>Number One Choice</h2>
                         <p>We aim to please you with fully customizing your wigs to your liking.</p>
 
-                        <?php if($page_name!=='shop'):?> 
+                        <?php if(in_array(($asset_page ?? $page_name), ['home', 'page', 'contact'])):?> 
                         <div class="akame-btn-group mt-30">
                             <a href="<?php echo base_url('meticulous/shop'); ?>" class="btn akame-btn active mr-3 mb-3 mb-sm-0">Shop all Wigs</a>
                             <a href="<?php echo base_url('meticulous/contact'); ?>" class="btn akame-btn">Contact Us</a>
@@ -41,6 +42,9 @@
         <div class="cta-thumbnail bg-img" style="background-image: url(<?=base_url('template/meticulous/img/bg-img/cta.png')?>);"></div>
     </section>
     <!-- Call To Action Area End -->
+    <?php else: ?>
+       <div class="border-top"></div>
+    <?php endif; ?>
 
     <!-- Footer Area Start -->
     <footer class="footer-area section-padding-80-0 mx-3">

@@ -3,7 +3,7 @@
     	<div class="cover"></div>
         <div class="media-link image_delay" data-src="<?php echo $this->crud_model->file_view('customer_product',$customer_product_id,'','','thumb','src','multi','one'); ?>" style="background-image:url('<?php echo img_loading(); ?>');background-size:cover;">
             <div class="quick-view-sm hidden-xs hidden-sm">
-                <span class="icon-view middle" data-toggle="tooltip" data-original-title="<?php  echo translate('quick_view'); ?>" onclick="quick_view('<?=base_url()?>home/quick_view_cp/<?=$customer_product_id?>')">
+                <span class="icon-view middle" data-toggle="tooltip" data-original-title="<?php  echo translate('quick_view'); ?>" onclick="quick_view('<?=base_url()?>meticulous/quick_view_cp/<?=$customer_product_id?>')">
                         <strong><i class="fa fa-eye"></i></strong>
                 </span>
             </div>

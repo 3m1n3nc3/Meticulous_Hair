@@ -15,13 +15,57 @@
                     </div>
                     <div class="col-7">
                         <div class="top-header-content text-right">
-                            <p><span class="mx-2"></span> <i class="fa fa-at" aria-hidden="true"></i> Email us: <?php echo $this->db->get_where('general_settings',array('type' => 'contact_email'))->row()->value;?></p>
+                            <p>
+                               <!--  <span class="mx-2"></span> <i class="fa fa-at" aria-hidden="true"></i> Email us: <?php echo $this->db->get_where('general_settings',array('type' => 'contact_email'))->row()->value;?>
+  -->
+                            <?php if($this->session->userdata('user_login')!='yes'):?>
+                                <span class="mx-2"></span> <i class="fa fa-user" aria-hidden="true"></i>
+                                <a href="<?php echo base_url(); ?>meticulous/login_set/login" class="text-white"> 
+                                    <span><?php echo translate('login');?></span>
+                                </a> 
+                                <?php if ($this->crud_model->get_type_name_by_id('general_settings','58','value') !== 'ok'):?>
+                                <span class="mx-2"></span> <i class="fa fa-user" aria-hidden="true"></i>
+                                <a href="<?php echo base_url(); ?>meticulous/login_set/registration" class="text-white">
+                                    <span><?php echo translate('registration');?></span>
+                                </a> 
+                                <?php endif ?>  
+
+                            <?php else: ?>
+                                <?php if ($this->crud_model->get_type_name_by_id('general_settings','84','value') == 'ok'):?>
+
+                                    <span class="ml-2"></span> <i class="fa fa-user" aria-hidden="true"></i>
+                                    <a href="<?php echo base_url(); ?>meticulous/profile/part/wallet" class="text-white">
+                                        <i class="fa fa-money"></i> <span><?php echo translate('wallet');?><?php echo ' - '.currency($this->wallet_model->user_balance()); ?></span>
+                                    </a> 
+                                <?php endif ?>  
+                                <span class="ml-2"></span> <i class="fa fa-user" aria-hidden="true"></i>
+                                <a href="<?php echo base_url(); ?>meticulous/profile/" class="text-white">
+                                    <span><?php echo translate('my_profile');?></span>
+                                </a> 
+                                <span class="ml-2"></span> <i class="fa fa-user" aria-hidden="true"></i>
+                                <a href="<?php echo base_url(); ?>meticulous/profile/part/wishlist" class="text-white">
+                                    <span><?php echo translate('wishlist');?></span>
+                                </a> 
+                                <span class="ml-2"></span> <i class="fa fa-user" aria-hidden="true"></i>
+                                <a href="<?php echo base_url(); ?>meticulous/faq" class="text-white">
+                                    <?php echo translate('faq');?>
+                                </a>
+                                <span class="ml-2"></span> <i class="fa fa-user" aria-hidden="true"></i> 
+                                <a href="<?php echo base_url(); ?>meticulous/logout/" class="text-white">
+                                    <span><?php echo translate('logout');?></span>
+                                </a> 
+                            <?php endif ?>  
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Top Header Area End -->
+
+      <!--   <div class="top-bar-rixght">
+            ----- ----- -----
+        </div> -->
 
         <!-- Main Header Start -->
         <div class="main-header-area">
@@ -81,16 +125,16 @@
                                     <?php } ?>
                                 </ul>
 
-                                <!-- Cart Icon -->
-                                <div class="cart-icon ml-5 mt-4 mt-lg-0"> 
-                                    <a href="<?php echo base_url('meticulous/cart_checkout')?>">
-                                        <i class="icon_cart"></i> 
-                                        <span class="hidden-xs"> 
-                                            <span class="cart_num"></span> 
-                                            <?php echo translate('item(s)');?>
-                                        </span>   
-                                    </a>
-                                </div> 
+                                <!-- Cart Icon --> 
+                                <a href="#" class="cart-icon ml-5 mt-4 mt-lg-0" data-toggle="modal" data-target="#popup-cart">
+                                    <i class="fa fa-shopping-cart"></i> 
+                                    <span class="hidden-xs"> 
+                                        <span class="cart_num"></span> 
+                                        <?php echo translate('item(s)'); ?>
+                                    
+                                    </span>  
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -110,7 +154,7 @@
                 location.reload();
             }});
         });
-        $('.top-bar-right').load('<?php echo base_url(); ?>home/top_bar_right');
+        $('.top-bar-right').load('<?php echo base_url(); ?>meticulous/top_bar_right');
     });
 </script>
 <?php

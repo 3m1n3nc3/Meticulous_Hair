@@ -14,7 +14,7 @@
                     foreach($brands as $row){
                 ?>
                 <div class="p-item">
-                    <a href="<?php echo base_url(); ?>home/category/0/0-<?php echo $row['brand_id']; ?>">
+                    <a href="<?php echo base_url(); ?>meticulous/category/0/0-<?php echo $row['brand_id']; ?>">
                         <?php
                         if(file_exists('uploads/brand_image/'.$row['logo'])){
                         ?>

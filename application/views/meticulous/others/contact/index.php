@@ -95,7 +95,7 @@
                     </span>
                 </h2>
                 <?php
-                    echo form_open(base_url() . 'home/contact/send', array(
+                    echo form_open(base_url() . 'meticulous/contact/send', array(
                         'class' => 'contact-form',
                         'method' => 'post',
                         'enctype' => 'multipart/form-data',
@@ -238,7 +238,7 @@
                         notify(sent,'success','bottom','right');
                         setTimeout(
                             function() {
-                                location.replace("<?php echo base_url(); ?>home/contact");
+                                location.replace("<?php echo base_url(); ?>meticulous/contact");
                             }, 2000
                         );
                     } else if (data == 'captcha_incorrect'){
