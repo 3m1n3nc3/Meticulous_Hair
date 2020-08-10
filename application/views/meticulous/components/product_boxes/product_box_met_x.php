@@ -7,7 +7,7 @@
                         <div class="overlay-content d-flex align-items-center justify-content-center">
                             <div class="overlay-text text-center">
                                 <h4>Wigs</h4>
-                                <p>100% Human Handmade Wigs</p>
+                                <p>100% Machine made Wigs</p>
                             </div>
                         </div>
 
@@ -25,7 +25,7 @@
                         <div class="overlay-content d-flex align-items-center justify-content-center">
                             <div class="overlay-text text-center">
                                 <h4>Wigs</h4>
-                                <p>100% Human Handmade Wigs</p>
+                                <p>100% Machine made Wigs</p>
                             </div>
                         </div>
 
@@ -43,7 +43,7 @@
                         <div class="overlay-content d-flex align-items-center justify-content-center">
                             <div class="overlay-text text-center">
                                 <h4>Wigs</h4>
-                                <p>100% Human Handmade Wigs</p>
+                                <p>100% Machine made Wigs</p>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                         <div class="overlay-content d-flex align-items-center justify-content-center">
                             <div class="overlay-text text-center">
                                 <h4>Wigs</h4>
-                                <p>100% Human Handmade Wigs</p>
+                                <p>100% Machine made Wigs</p>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@
                         <div class="overlay-content d-flex align-items-center justify-content-center">
                             <div class="overlay-text text-center">
                                 <h4>Wigs</h4>
-                                <p>100% Human Handmade Wigs</p>
+                                <p>100% Machine made Wigs</p>
                             </div>
                         </div>
 

@@ -7,7 +7,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="section-heading mb-80">
                         <h2><?php echo $system_title; ?></h2>
-                        <p>100% Human Handmade Wigs</p>
+                        <p>100% Machine made Wigs</p>
                         <span><?php echo $about['page_name']; ?></span>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             $content    = $row['content']; ?>
 
                         <?php if($type == 'content'):?> 
-                            <h3>100% human handmade wigs, fully customized.</h3>
+                            <h3>100% Machine made wigs, fully customized.</h3>
                             <p>“<?php echo word_limiter(strip_tags($content), 40);?>”</p>
                             <a href="<?php echo base_url('meticulous/page/'.$about['parmalink']); ?>" class="btn akame-btn active mt-30">Read More</a>
                         <?php endif;?>
@@ -109,13 +109,13 @@
                     <!-- Section Heading -->
                     <div class="section-heading">
                         <h2>Why choose us</h2>
-                        <p>There's so much reasons to make Meticulous1on1Hair your No.1 brand</p>
+                        <p>There's more reasons to make Meticulous1on1Hair your No.1 brand</p>
                     </div>
                     <!-- Choose Us Content -->
                     <div class="choose-us-content mt-30 mb-80">
                         <ul>
                             <li><i class="fa fa-check-square-o" aria-hidden="true"></i> We have multiple years of experience and a broad range of skills.</li>
-                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> We specialize in 100% human handmade wigs, fully customized to fit your needs.</li>
+                            <li><i class="fa fa-check-square-o" aria-hidden="true"></i> We specialize in 100% machine made wigs, fully customized to fit your needs.</li>
                             <li><i class="fa fa-check-square-o" aria-hidden="true"></i> All our wigs are machine made by us to give you that long-lasting look and luster.</li>
                             <li><i class="fa fa-check-square-o" aria-hidden="true"></i> We offer fast door step delivery services to any place in the world.</li>
                         </ul>
@@ -137,7 +137,7 @@
                         <h2>
                             Our Work
                         </h2>
-                        <p>We specialize in 100% human handmade wigs, fully customized to fit your needs.</p>
+                        <p>We specialize in 100% Machine made wigs, fully customized to fit your needs.</p>
                     </div>
                 </div>
             </div>
