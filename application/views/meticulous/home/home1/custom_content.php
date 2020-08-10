@@ -137,7 +137,7 @@
                         <h2>
                             Our Work
                         </h2>
-                        <p>We specialize in 100% Machine made wigs, fully customized to fit your needs.</p>
+                        <p>Our wigs are Machine made to give you that long lasting feel.</p>
                     </div>
                 </div>
             </div>
