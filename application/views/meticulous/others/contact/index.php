@@ -71,6 +71,15 @@
                                 </a>
                             </div>
                         </div>
+                        <div class="media">
+                            <i class="pull-left fa fa-envelope-open-o"></i>
+                            <div class="media-body">
+                                <strong><?php echo translate('sales_email');?>:</strong><br>
+                                <a href="mailto:sales@meticulous1on1hair.com">
+                                    sales@meticulous1on1hair.com
+                                </a>
+                            </div>
+                        </div>
                         <?php
                         }
                         ?>

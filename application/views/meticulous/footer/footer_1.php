@@ -114,11 +114,15 @@
                         <!-- Contact Address -->
                         <div class="contact-address"> 
                             <p> 
-    							<strong><?php echo translate('email');?>:</strong> 
-    							<a href="mailto:<?php echo $contact_email;?>" style="color: unset;">
-    								<?php echo $contact_email;?>
-    							</a>
-    						</p> 
+                                <strong><?php echo translate('email');?>:</strong> 
+                                <a href="mailto:<?php echo $contact_email;?>" style="color: unset;">
+                                    <?php echo $contact_email;?>
+                                </a>  
+                                <br>
+                                <a href="mailto:sales@meticulous1on1hair.com" style="color: unset;">
+                                    sales@meticulous1on1hair.com
+                                </a>
+                            </p> 
                         </div>
 
                         <!-- Social Info -->
