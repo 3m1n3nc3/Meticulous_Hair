@@ -233,22 +233,22 @@
 	];
 	
 	var sale_details1 = [];
-		
-	var chartData1 = [ 
-		<?php
-			$categories = $this->db->get('category')->result_array();
-			foreach($categories as $row) {
-				$this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'add'); 
-		?> 
-		{
-			 "country": "<?php echo $row['category_name']; ?>",
-			 "visits": <?php echo $this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'add'); ?> ,
-			 "color": "#9365b8"
-		 }, 
-		 <?php
-			} 
-		 ?>
-	];
+		 
+    var chartData1 = [ 
+        <?php
+            $categories = $this->db->get('category')->result_array();
+            foreach($categories as $row) {
+                $this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'add'); 
+        ?> 
+        {
+             "country": "<?php echo $row['category_name']; ?>",
+             "visits": <?php echo $this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'add'); ?> ,
+             "color": "#9365b8"
+         }, 
+         <?php
+            } 
+         ?>
+    ];
 
 	var chartData2 = [
 		<?php
@@ -265,38 +265,38 @@
 			}
 		?>
 	];
+    
+    var chartData3 = [
+        <?php
+            $categories = $this->db->get('category')->result_array();
+            foreach($categories as $row) {
+                $this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'destroy'); 
+         ?>
+         {
+             "country": "<?php echo $row['category_name']; ?>",
+             "visits": <?php echo $this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'destroy', 'reason_note', "sale"); ?> ,
+             "color": "#303641"
+         }, 
+         <?php
+            } 
+         ?>
+    ];
 
-	var chartData3 = [
-		<?php
-			$categories = $this->db->get('category')->result_array();
-			foreach($categories as $row) {
-				$this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'destroy'); 
-		 ?>
-		 {
-			 "country": "<?php echo $row['category_name']; ?>",
-			 "visits": <?php echo $this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'destroy', 'reason_note', "sale"); ?> ,
-			 "color": "#303641"
-		 }, 
-		 <?php
-			} 
-		 ?>
-	];
-
-	var chartData4 = [
-		<?php
-			$categories = $this->db->get('category')->result_array();
-			foreach($categories as $row) {
-				$fin = ($this->crud_model->month_total('sale', 'category', $row['category_id'])) - ($this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'add'));
-		?>
-		{
-			"country": "<?php echo $row['category_name']; ?>",
-			"visits": <?php echo $fin; ?> ,
-			"color": "#458fd2"
-		},
-		<?php
-		}
-		?>
-	];
+    var chartData4 = [
+        <?php
+            $categories = $this->db->get('category')->result_array();
+            foreach($categories as $row) {
+                $fin = ($this->crud_model->month_total('sale', 'category', $row['category_id'])) - ($this->crud_model->month_total('stock', 'category', $row['category_id'], 'type', 'add'));
+        ?>
+        {
+            "country": "<?php echo $row['category_name']; ?>",
+            "visits": <?php echo $fin; ?> ,
+            "color": "#458fd2"
+        },
+        <?php
+        }
+        ?>
+    ];
 
 	var chartData5 = [
 		{

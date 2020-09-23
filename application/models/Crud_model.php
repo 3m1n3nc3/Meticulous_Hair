@@ -1086,9 +1086,11 @@ class Crud_model extends CI_Model
             }
         } else if ($type == 'stock') {
             if ($this->session->userdata('title') == 'admin') {
-                $this->db->get_where('added_by', json_encode(array('type' => 'vendor', 'id' => $this->session->userdata('vendor_id'))));
-                $this->db->get_where('datetime >= ', $ago);
-                $this->db->get_where('datetime <= ', time());
+                $this->db->get_where('stock', array('added_by' => json_encode(array('type' => 'vendor', 'id' => $this->session->userdata('vendor_id')))));
+                $this->db->get_where('stock', array(
+                    'datetime >= ' => $ago,
+                    'datetime <= ' => time()
+                ));
                 $result = $this->db->get('stock')->result_array();
                 foreach ($result as $row) {
                     if ($row[$filter2] == $filter_val2) {
