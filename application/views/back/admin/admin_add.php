@@ -58,8 +58,7 @@
                     <?php echo translate('role'); ?>
                 </label>
                 <div class="col-sm-6">
-                    <?php echo $this->
-                    crud_model->select_html('role','role','name','add','demo-chosen-select required'); ?>
+                    <?php echo $this->crud_model->select_html('role','role','name','add','demo-chosen-select required'); ?>
                 </div>
             </div>
             

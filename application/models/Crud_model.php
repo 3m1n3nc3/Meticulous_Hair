@@ -393,6 +393,9 @@ class Crud_model extends CI_Model
     /////////SELECT HTML/////////////
     function select_html($from, $name, $field, $type, $class, $e_match = '', $condition = '', $c_match = '', $onchange = '', $condition_type = 'single', $is_none = '')
     {
+        $admin = $this->db->get_where('admin', array(
+            'admin_id' => $this->session->userdata('admin_id')
+        ))->row();
         $return = '';
         $other = '';
         $multi = 'no';
@@ -430,20 +433,22 @@ class Crud_model extends CI_Model
             }
 
             foreach ($all as $row):
-                if ($type == 'add') {
-                    $return .= '<option value="' . $row[$from . '_id'] . '">' . $row[$field] . '</option>';
-                } else if ($type == 'edit') {
-                    $return .= '<option value="' . $row[$from . '_id'] . '" ';
-                    if ($multi == 'no') {
-                        if ($row[$from . '_id'] == $e_match) {
-                            $return .= 'selected=."selected"';
+                if ($row[$field] != 'master' OR $admin->role == 1) { 
+                    if ($type == 'add') {
+                        $return .= '<option value="' . $row[$from . '_id'] . '">' . $row[$field] . '</option>';
+                    } else if ($type == 'edit') {
+                        $return .= '<option value="' . $row[$from . '_id'] . '" ';
+                        if ($multi == 'no') {
+                            if ($row[$from . '_id'] == $e_match) {
+                                $return .= 'selected=."selected"';
+                            }
+                        } else if ($multi == 'yes') {
+                            if (in_array($row[$from . '_id'], $e_match)) {
+                                $return .= 'selected=."selected"';
+                            }
                         }
-                    } else if ($multi == 'yes') {
-                        if (in_array($row[$from . '_id'], $e_match)) {
-                            $return .= 'selected=."selected"';
-                        }
+                        $return .= '>' . $row[$field] . '</option>';
                     }
-                    $return .= '>' . $row[$field] . '</option>';
                 }
             endforeach;
         } else {
@@ -455,28 +460,30 @@ class Crud_model extends CI_Model
                 $return .= '<option value="">Choose one</option>';
             }
             foreach ($all as $row):
-                if ($type == 'add') {
-                    $return .= '<option value="' . $row . '">';
-                    if ($condition == '') {
-                        $return .= ucfirst(str_replace('_', ' ', $row));
-                    } else {
-                        $return .= $this->crud_model->get_type_name_by_id($condition, $row, $c_match);
-                    }
-                    $return .= '</option>';
-                } else if ($type == 'edit') {
-                    $return .= '<option value="' . $row . '" ';
-                    if ($row == $e_match) {
-                        $return .= 'selected=."selected"';
-                    }
-                    $return .= '>';
+                if ($row != 'master' OR $admin->role == 1) { 
+                    if ($type == 'add') {
+                        $return .= '<option value="' . $row . '">';
+                        if ($condition == '') {
+                            $return .= ucfirst(str_replace('_', ' ', $row));
+                        } else {
+                            $return .= $this->crud_model->get_type_name_by_id($condition, $row, $c_match);
+                        }
+                        $return .= '</option>';
+                    } else if ($type == 'edit') {
+                        $return .= '<option value="' . $row . '" ';
+                        if ($row == $e_match) {
+                            $return .= 'selected=."selected"';
+                        }
+                        $return .= '>';
 
-                    if ($condition == '') {
-                        $return .= ucfirst(str_replace('_', ' ', $row));
-                    } else {
-                        $return .= $this->crud_model->get_type_name_by_id($condition, $row, $c_match);
-                    }
+                        if ($condition == '') {
+                            $return .= ucfirst(str_replace('_', ' ', $row));
+                        } else {
+                            $return .= $this->crud_model->get_type_name_by_id($condition, $row, $c_match);
+                        }
 
-                    $return .= '</option>';
+                        $return .= '</option>';
+                    }
                 }
             endforeach;
         }
