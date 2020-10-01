@@ -20,6 +20,9 @@
     $ssl_set = $this->db->get_where('business_settings', array(
         'type' => 'ssl_set'
     ))->row()->value;
+    $admin = $this->db->get_where('admin', array(
+        'admin_id' => $this->session->userdata('admin_id')
+    ))->row();
 
 ?>
 <div id="content-container">
@@ -32,6 +35,8 @@
     </div>
     <div class="row">
         <div class="col-md-12">
+
+            <?php if ($admin->role == 1): ?>
             <div class="col-md-12">
                 <div class="panel panel-bordered panel-dark">
                     <div class="panel-heading">
@@ -314,6 +319,8 @@
                     </div>
                 </div>
             </div>
+            <?php endif ?>
+
             <div class="col-md-12">
                 <div class="panel panel-bordered panel-dark">
                     <div class="panel-heading">
